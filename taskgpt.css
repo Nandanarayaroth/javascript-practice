@@ -1,0 +1,26 @@
+
+
+body{
+    align-items: center;
+    font-size: 2rem;
+    overflow: hidden;
+}
+h3{
+    display: flex;
+    justify-content: center;
+}
+/* label{
+    display: flex;
+    justify-content: center;
+} */
+/* #incmt{
+    margin-left: 200px;
+}
+#decmt{
+    margin-left: 100px;
+} */
+/* .sble{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+} */
