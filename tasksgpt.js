@@ -748,3 +748,122 @@
 // limitInput.addEventListener("input", updateCounts)
 
 // updateCounts()
+
+// document.getElementById("convet").addEventListener("click", function(){
+//     let celsiusValue = document.getElementById("Celsius").value
+//     let result = document.getElementById("result")
+
+//     if(celsiusValue.trim() === "" || isNaN(celsiusValue)){
+//         result.textContent = "Please enter a valid number."
+//         return
+//     }
+//     let fahrenheit = (Number(celsiusValue) * 9/5) + 32
+//     result.textContent = `${celsiusValue} C = ${fahrenheit.toFixed(2)} F`
+// })
+
+// document.getElementById("countBtn").addEventListener("click", function(){
+//     let sentance = document.getElementById("sentance").value.trim();
+//     let result = document.getElementById("result");
+
+//     if(sentance === ""){
+//         result.textContent = "Please enter a sentence."
+//         return
+//     }
+//     let wordCount = sentance.split(/\s+/).length;
+
+//     result.textContent = `Number of words: ${wordCount}`
+// })
+
+// const input = document.getElementById("todoInput")
+// const addBtn = document.getElementById("addBtn")
+// const todoList = document.getElementById("todoList")
+
+// addBtn.addEventListener("click", function(){
+//     const task = input.value.trim()
+//     if(task === ""){
+//         alert("Enter a task")
+//         return
+//     }
+//     const li = document.createElement("li");
+//     li.textContent = task
+
+//     li.addEventListener("click", function(){
+//         todoList.removeChild(li)
+//     })
+
+//     todoList.appendChild(li)
+//     input.value =""
+// })
+
+// const quotes = [
+//     "The best way to predict the future is to invent it. - Alan Kay",
+//     "Life is what happens when you're busy making other plans. - John Lennon",
+//     "Do not take life too seriously. You will never get out of it alive. - Elbert Hubbard",
+//     "In the middle of every difficulty lies opportunity. - Albert Einstein"
+// ];
+
+// const button = document.getElementById("generateBtn")
+// const disply = document.getElementById("quoteDisplay")
+
+// button.addEventListener("click", function(){
+//     const rand = Math.floor(Math.random() * quotes.length)
+//     const random = quotes[rand]
+
+//     disply.textContent = random
+// })
+
+// function updateClock() {
+//     const now = new Date();
+//     let hours = now.getHours();
+//     let minutes = now.getMinutes();
+//     let seconds = now.getSeconds()
+
+//     hours = hours < 10 ? "0" + hours : hours;
+//     minutes = minutes < 10 ? "0" + minutes : minutes;
+//     seconds = seconds < 10 ? "0" + seconds : seconds
+
+//     const timeString = `${hours} : ${minutes} : ${seconds}`;
+
+//     document.getElementById("clock").textContent = timeString
+// }
+
+// setInterval(updateClock, 1000)
+
+// updateClock()
+
+// document.getElementById("checkBtn").addEventListener("click", function() {
+//     let input = document.getElementById("textInput").value;
+//     let cleanInput = input.replace(/[^a-zA-Z0-9]/g, "").toLowerCase()
+
+//     let reversed = cleanInput.split("").reverse().join("")
+
+//     if(cleanInput === reversed){
+//         document.getElementById("result").textContent = `"${input}" is a palindrome!`;
+//     }
+//     else{
+//         document.getElementById("result").textContent = `"${input}" is not a palindrome`
+//     }
+// })
+
+document.getElementById("countBtn").addEventListener("click", function(){
+    let input = document.getElementById("textInput").value;
+    let resultDiv = document.getElementById("result")
+
+    if(input.trim() === ""){
+        resultDiv.textContent = "Please enter some text."
+        return;
+    }
+    let freq = {}
+
+    for(let char of input){
+        if(char!== " "){
+            char = char.toLowerCase();
+            freq[char] = (freq[char] || 0) +1
+        }
+    }
+    let output = "";
+    for(let key in freq) {
+        output += `${key}: ${freq[key]}<br>`
+    }
+    resultDiv.innerHTML = output
+})

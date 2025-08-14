@@ -528,17 +528,15 @@ let arr=[]
 let size = Number(prompt("enter size of the array"))
 let val = []
 let temp = []
-let flag = 0
+let flag = false
 for(let i=0; i<size; i++){
     val[i] = Number(prompt(`enter ${i}th item`))
-    temp = val[i]
-    if(temp){
-        for(let j=0; j<i; j++){
-            temp === val[j]
-            flag = flag + 1 
-            console.log(flag)
+    for(let j=0; j<val[i]; j++){
+        if(temp[j] === val[i]){
+            flag =  true   
         }
     }
+    
 }
 console.log(val)
 
