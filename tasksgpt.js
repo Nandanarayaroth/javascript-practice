@@ -1144,78 +1144,139 @@
 // }
 
 
-let rock = document.getElementById("rock")
-let paper = document.getElementById("paper")
-let scissors = document.getElementById("scissor")
-let choice = document.getElementById("choice")
-let instruction = document.getElementById("instruction")
-let score = document.getElementById("score")
-let playChoice = null;
-let count = 0
+// let rock = document.getElementById("rock")
+// let paper = document.getElementById("paper")
+// let scissors = document.getElementById("scissor")
+// let choice = document.getElementById("choice")
+// let instruction = document.getElementById("instruction")
+// let score = document.getElementById("score")
+// let playChoice = null;
+// let count = 0
 
-let rockSelct
-let paperSelct
-let scissorSelct
+// let rockSelct
+// let paperSelct
+// let scissorSelct
 
-    rock.addEventListener("click", function(){
-        playChoice = "rock"
-        console.log(rock)
+//     rock.addEventListener("click", function(){
+//         playChoice = "rock"
+//         console.log(rock)
         
-    })
+//     })
 
     
-    paper.addEventListener("click", function(){
-        playChoice = "paper"
-    })
+//     paper.addEventListener("click", function(){
+//         playChoice = "paper"
+//     })
 
     
-    scissors.addEventListener("click", function(){
-        playChoice = "scissor"
-    })
+//     scissors.addEventListener("click", function(){
+//         playChoice = "scissor"
+//     })
 
-document.getElementById("play").addEventListener("click", function(){
+// document.getElementById("play").addEventListener("click", function(){
    
-    if(!playChoice){
-        instruction.textContent = "Select a option";
-        instruction.style.color = "purple"
-        return;
-    }
+//     if(!playChoice){
+//         instruction.textContent = "Select a option";
+//         instruction.style.color = "purple"
+//         return;
+//     }
     
 
-    let Computer = Math.floor(Math.random() * 3) + 1
-    let ComputerChoice
+//     let Computer = Math.floor(Math.random() * 3) + 1
+//     let ComputerChoice
 
-    if(Computer === 1){
-        choice.textContent = "🪨 Rock"
-        ComputerChoice = "rock"
-    }
-    else if(Computer === 2){
-        choice.textContent = "📄 Paper"
-        ComputerChoice = "paper"
-    }
-    else if(Computer === 3){
-        choice.textContent = "✂️ Scissors"
-        ComputerChoice = "scissor"
-    }
+//     if(Computer === 1){
+//         choice.textContent = "🪨 Rock"
+//         ComputerChoice = "rock"
+//     }
+//     else if(Computer === 2){
+//         choice.textContent = "📄 Paper"
+//         ComputerChoice = "paper"
+//     }
+//     else if(Computer === 3){
+//         choice.textContent = "✂️ Scissors"
+//         ComputerChoice = "scissor"
+//     }
 
-   if (playChoice === ComputerChoice){
-    instruction.textContent = "It's Draw!"
-   }
-   else if(
-        (playChoice === "rock" && ComputerChoice === "scissor") || (playChoice === "paper" && ComputerChoice === "rock") || (playChoice === "scissor" && ComputerChoice === "paper")
-    ){
-        count++
-        instruction.textContent = "You win!";
-        instruction.style.color = "green"
+//    if (playChoice === ComputerChoice){
+//     instruction.textContent = "It's Draw!"
+//    }
+//    else if(
+//         (playChoice === "rock" && ComputerChoice === "scissor") || (playChoice === "paper" && ComputerChoice === "rock") || (playChoice === "scissor" && ComputerChoice === "paper")
+//     ){
+//         count++
+//         instruction.textContent = "You win!";
+//         instruction.style.color = "green"
+//     }
+//     else{
+//         instruction.textContent = "You failed"
+//         instruction.style.color = "red"
+//     }
+//     score.textContent = `Your Score: ${count} `
+//     playChoice = null
+    
+// })
+
+
+// for(let i=0; i<16; i++){
+//     let cells = document.createElement("div")
+//     cells.classList.add("cell")
+//     cells.id = "cel"+i
+//     overcell.appendChild(cells)
+// }
+
+
+// shuffle
+let overcell = document.getElementById("overcell")
+let cards = []
+for(let i=1; i<=8; i++){
+    cards.push(i)
+    cards.push(i)
+}
+cards.sort(() => Math.random() - 0.5) 
+
+//  face-down
+for(let i = 0; i < cards.length; i++){
+    let cell = document.createElement("div")
+    cell.classList.add("cell")
+    cell.dataset.value = cards[i]
+    cell.textContent = "❓"
+    overcell.appendChild(cell)
+}
+
+// flip logic
+let firstCard = null
+let secondCard = null
+let lockboard = false
+
+overcell.addEventListener("click", function(e) {
+    let clicked = e.target
+
+    if(!clicked.classList.contains("cell") || lockboard) return
+    if(clicked === firstCard) return
+
+    clicked.textContent = clicked.dataset.value
+
+    if(!firstCard){
+        firstCard = clicked
     }
     else{
-        instruction.textContent = "You failed"
-        instruction.style.color = "red"
+        secondCard = clicked
+        lockboard = true
+
+        if(firstCard.dataset.value === secondCard.dataset.value) {
+            firstCard = null
+            secondCard = null
+            lockboard = false
+        }
+        else{
+            setTimeout(() => {
+                firstCard.textContent = "❓"
+                secondCard.textContent ="❓"
+                firstCard = null
+                secondCard = null
+                lockboard = false
+            }, 1000)
+        }
     }
-    score.textContent = `Your Score: ${count} `
-    playChoice = null
-    
 })
-
-
-
