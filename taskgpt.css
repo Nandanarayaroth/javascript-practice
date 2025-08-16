@@ -63,7 +63,7 @@ h3{
  #next-btn:hover{
     background: #0056b3;
  } */
-.board{
+/* .board{
     display: grid;
     grid-template-columns: repeat(3, 100px);
     grid-template-rows: repeat(3, 100px);
@@ -90,4 +90,40 @@ button{
     margin-top: 20px;
     padding: 10px 20px;
     cursor: pointer;
+} */
+
+
+#gamer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #d1c4c4;
+    margin: 50px;
+    padding-bottom: 20px;
+    margin-left: 150px;
+    margin-right: 150px;
+    border-radius: 35px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
+            0 2px 8px rgba(0, 0, 0, 0.08),
+            0 0 10px rgba(131, 53, 22, 0.2);
+}
+#choice{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#choice{
+    margin: 20px;
+}
+
+button{
+    border: none;
+    padding: 10px;
+    border-radius: 56px;
+    width: 100px;
+    height: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+button:active{
+    border: 1px solid black;
 }

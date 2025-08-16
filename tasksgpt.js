@@ -1086,59 +1086,136 @@
 //     }
 // })
 
-const cells = document.querySelectorAll(".cell")
-const statusText = document.getElementById("status");
-const resetBtn = document.getElementById("reset")
+// const cells = document.querySelectorAll(".cell")
+// const statusText = document.getElementById("status");
+// const resetBtn = document.getElementById("reset")
 
-let currentPlayer = "X";
-let gameActive = true;
-let board = ["", "", "", "", "", "", "", "", ""];
+// let currentPlayer = "X";
+// let gameActive = true;
+// let board = ["", "", "", "", "", "", "", "", ""];
 
-const winningCombos =[
-    [0, 1, 2], [3, 4, 5], [6, 7, 8],
-    [0, 3, 6], [1, 4, 7], [2, 5, 8],
-    [0, 4, 8], [2, 4, 6]
-];
+// const winningCombos =[
+//     [0, 1, 2], [3, 4, 5], [6, 7, 8],
+//     [0, 3, 6], [1, 4, 7], [2, 5, 8],
+//     [0, 4, 8], [2, 4, 6]
+// ];
 
-cells.forEach((cell, index) => {
-    cell.addEventListener("click", () => {
-        if(!gameActive || board[index] !== "") {
-            return
-        }
-        board[index] = currentPlayer;
-        cell.textContent = currentPlayer
-        cell.classList.add("taken");
+// cells.forEach((cell, index) => {
+//     cell.addEventListener("click", () => {
+//         if(!gameActive || board[index] !== "") {
+//             return
+//         }
+//         board[index] = currentPlayer;
+//         cell.textContent = currentPlayer
+//         cell.classList.add("taken");
 
-        if(checkWinner()) {
-            statusText.textContent = `Player ${currentPlayer} Wins`;
-            gameActive = false;
-        }
-        else if(board.every(cell => cell !== "")){
-            statusText.textContent = "It's a Draw"
-            gameActive = false;
-        }
-        else{
-            currentPlayer = currentPlayer === "X" ? "O" : "X";
-            statusText.textContent = `Player ${currentPlayer}'s Turn`;
-        }
+//         if(checkWinner()) {
+//             statusText.textContent = `Player ${currentPlayer} Wins`;
+//             gameActive = false;
+//         }
+//         else if(board.every(cell => cell !== "")){
+//             statusText.textContent = "It's a Draw"
+//             gameActive = false;
+//         }
+//         else{
+//             currentPlayer = currentPlayer === "X" ? "O" : "X";
+//             statusText.textContent = `Player ${currentPlayer}'s Turn`;
+//         }
+//     })
+// })
+
+// resetBtn.addEventListener("click", function(){
+//     currentPlayer = "X"
+//     board = ["", "", "", "", "", "", "", "", ""];
+//     gameActive = true
+//     statusText.textContent = "Payer X's Turn";
+//     cells.forEach(cell => {
+//         cell.textContent = "";
+//         cell.classList.remove("taken")
+//     })
+// })
+
+// function checkWinner() {
+    
+//         return winningCombos.some(combo => {
+//             return combo.every(index => board[index] === currentPlayer)
+//         })
+    
+// }
+
+
+let rock = document.getElementById("rock")
+let paper = document.getElementById("paper")
+let scissors = document.getElementById("scissor")
+let choice = document.getElementById("choice")
+let instruction = document.getElementById("instruction")
+let score = document.getElementById("score")
+let playChoice = null;
+let count = 0
+
+let rockSelct
+let paperSelct
+let scissorSelct
+
+    rock.addEventListener("click", function(){
+        playChoice = "rock"
+        console.log(rock)
+        
     })
+
+    
+    paper.addEventListener("click", function(){
+        playChoice = "paper"
+    })
+
+    
+    scissors.addEventListener("click", function(){
+        playChoice = "scissor"
+    })
+
+document.getElementById("play").addEventListener("click", function(){
+   
+    if(!playChoice){
+        instruction.textContent = "Select a option";
+        instruction.style.color = "purple"
+        return;
+    }
+    
+
+    let Computer = Math.floor(Math.random() * 3) + 1
+    let ComputerChoice
+
+    if(Computer === 1){
+        choice.textContent = "🪨 Rock"
+        ComputerChoice = "rock"
+    }
+    else if(Computer === 2){
+        choice.textContent = "📄 Paper"
+        ComputerChoice = "paper"
+    }
+    else if(Computer === 3){
+        choice.textContent = "✂️ Scissors"
+        ComputerChoice = "scissor"
+    }
+
+   if (playChoice === ComputerChoice){
+    instruction.textContent = "It's Draw!"
+   }
+   else if(
+        (playChoice === "rock" && ComputerChoice === "scissor") || (playChoice === "paper" && ComputerChoice === "rock") || (playChoice === "scissor" && ComputerChoice === "paper")
+    ){
+        count++
+        instruction.textContent = "You win!";
+        instruction.style.color = "green"
+    }
+    else{
+        instruction.textContent = "You failed"
+        instruction.style.color = "red"
+    }
+    score.textContent = `Your Score: ${count} `
+    playChoice = null
+    
 })
 
-resetBtn.addEventListener("click", function(){
-    currentPlayer = "X"
-    board = ["", "", "", "", "", "", "", "", ""];
-    gameActive = true
-    statusText.textContent = "Payer X's Turn";
-    cells.forEach(cell => {
-        cell.textContent = "";
-        cell.classList.remove("taken")
-    })
-})
 
-function checkWinner() {
-    
-        return winningCombos.some(combo => {
-            return combo.every(index => board[index] === currentPlayer)
-        })
-    
-}
+
