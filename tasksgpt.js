@@ -845,28 +845,300 @@
 //     }
 // })
 
-document.getElementById("countBtn").addEventListener("click", function(){
-    let input = document.getElementById("textInput").value;
-    let resultDiv = document.getElementById("result")
+// document.getElementById("countBtn").addEventListener("click", function(){
+//     let input = document.getElementById("textInput").value;
+//     let resultDiv = document.getElementById("result")
 
-    if(input.trim() === ""){
-        resultDiv.textContent = "Please enter some text."
-        return;
-    }
-    let freq = {}
+//     if(input.trim() === ""){
+//         resultDiv.textContent = "Please enter some text."
+//         return;
+//     }
+//     let freq = {}
 
-    for(let char of input){
-        if(char!== " "){
-            char = char.toLowerCase();
-            freq[char] = (freq[char] || 0) +1
+//     for(let char of input){
+//         if(char!== " "){
+//             char = char.toLowerCase();
+//             freq[char] = (freq[char] || 0) +1
+//         }
+//     }
+//     let output = "";
+//     for(let key in freq) {
+//         output += `${key}: ${freq[key]}<br>`
+//     }
+//     resultDiv.innerHTML = output
+// })
+
+// document.getElementById("userForm").addEventListener("submit", function(e){
+//     e.preventDefault()
+
+//     let name = document.getElementById("name").value.trim();
+//     let email = document.getElementById("email").value.trim();
+//     let message = document.getElementById("message")
+
+
+//     if(name === ""){
+//         message.textContent = "Name cannot be empty."
+//         message.style.color = "red"
+//         return;
+//     }
+//     if(name.length < 3){
+//         message.textContent = "Name must be at least 3 characters."
+//         message.style.color = "red"
+//         return;
+//     }
+//     let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+//     if(!email.match(emailPattern)){
+//         message.textContent = "Please enter a valid email address"
+//         message.style.color = "red"
+//         return;
+//     }
+
+//     message.textContent = `Form submitted sucessfully! Name: ${name}, Email: ${email}`;
+//     message.style.color = "green"
+// })
+
+// 
+// document.getElementById("submit").addEventListener("click", function(e){
+//     e.preventDefault()
+
+//     let strr = document.getElementById("str").value.trim()
+//     let str = strr.split("")
+//     let result = document.getElementById("result")
+//     let flag = true
+//     let count = 0
+//     console.log("string enterd")
+
+//     if(strr === ""){
+//         result.textContent = "enter a valid string"
+//     }
+
+//     for(let i=0; i< str.length/2; i++){
+//         if(str[i]!== str[str.length-1-i]){
+//             flag = false
+//             break
+//         }
+//     }
+//     if(flag){
+//         result.textContent = "palindrome"
+//     }
+//     else{
+//         result.textContent = "not palindrome"
+//     }
+// })
+
+// document.getElementById("btn").addEventListener("click", function(){
+//     let task = document.getElementById("task").value.trim();
+//     let layout = document.getElementById("layout")
+    
+//     if(task === ""){
+//         layout.textContent = "invalid"
+//     }
+
+//     let list = document.createElement("li")
+//     list.textContent = `${task}`
+    
+
+//     const dltBtn = document.createElement("button")
+//     dltBtn.textContent = "delete"
+//     dltBtn.addEventListener("click", (e) => {
+//         e.stopPropagation()
+//         list.remove()
+//     })
+//     layout.appendChild(dltBtn)
+//     layout.appendChild(list)
+
+//     task.value = ""
+// })
+
+// const postcntr = document.getElementById("posts")
+
+// fetch("https://jsonplaceholder.typicode.com/posts")
+//     .then(response => response.json())
+//     .then(data => {
+//         const firstTen  = data.slice(0,10)
+
+//         firstTen.forEach(post => {
+//             const postDiv = document.createElement("div")
+//             postDiv.innerHTML = `
+//                 <div>${post.title}</div>
+//                 <div>${post.body}</div>
+//             `
+//             postcntr.appendChild(postDiv)
+//         })
+//     })
+//     .catch(error => {
+//         postcntr.innerHTML = `<p style="color:red;">Error fetching posts`
+//         console.error("Error", error);
+        
+//     })
+
+
+// const mainn = document.getElementById("mainn")
+
+// fetch("https://jsonplaceholder.typicode.com/posts")
+//     .then(response => response.json())
+//     .then(data =>{
+//         const first = data.slice(0,10)
+
+//         first.forEach(items => {
+//             const high = document.createElement("div")
+//             high.innerHTML = `
+//                 <div>${items.title}</div>
+//                 <div>${items.body}</div>
+//             `
+//             mainn.appendChild(high)
+//         })
+//     })
+//     .catch(error => {
+//         mainn.innerHTML = `<p>Error in fetching</p>`
+//         console.error("Error",error)
+//     })
+
+// const questions = [
+//     {
+//         question: "What is the capital of France?",
+//         answers: ["Berlin", "Madrid", "Paris", "Rome"],
+//         correct: "Paris"
+//     },
+//     {
+//         question: "Which language runs in the browser?",
+//         answers: ["Java","C", "Python","JavaScript"],
+//         correct: "JavaScript"
+//     },
+//     {
+//         question: "What does CSS stands for?",
+//         answers: ["Central Style Sheet", "Cascading Style Sheets", "Cars SUVs Sailboats"],
+//         correct: "Cascading Style Sheets"
+//     },
+    
+// ]
+// let currentQuestionIndex = 0
+// let score = 0
+ 
+// const questionEl = document.getElementById("question")
+// const optionsEl = document.getElementById("options")
+// const nextBtn = document.getElementById("next-btn")
+// const scoreEl = document.getElementById("score")
+
+// function showQuestion() {
+//     optionsEl.innerHTML = ""
+//     nextBtn.style.display = "none"
+
+//     let currentQuestion = questions[currentQuestionIndex]
+//     questionEl.textContent = currentQuestion.question
+
+//     currentQuestion.answers.forEach(answer => {
+//         const button = document.createElement("button")
+//         button.textContent = answer
+//             button.addEventListener("click", () => selectAnswer(answer))
+//             optionsEl.appendChild(button)
+//     })
+// }
+// function selectAnswer(answer) {
+//     let correctAnswer = questions[currentQuestionIndex].correct
+//     if(answer === correctAnswer){
+//         score++
+//     }
+//     nextBtn.style.display = "block"
+// }
+// nextBtn.addEventListener("click", () => {
+//     currentQuestionIndex++
+//     if(currentQuestionIndex < questions.length){
+//         showQuestion()
+//     }
+//     else{
+//         showScore()
+//     }
+// })
+// function showScore(){
+//     questionEl.style.display = "none"
+//     optionsEl.style.display = "none"
+//     nextBtn.style.display = "none"
+//     scoreEl.style.display = "block"
+//     scoreEl.textContent = `you scored ${score} out of ${questions.length}`
+// }
+// showQuestion()
+
+
+// let Comptnum = Math.floor(Math.random()* 100) + 1
+// let score = 0
+// document.getElementById("Checker").addEventListener("click", function(){
+//     let numer = document.getElementById("num").value
+//     let hint = document.getElementById("hint")
+//     let mark = document.getElementById("mark")
+
+//     if(numer.trim() === ""){
+//         hint.textContent= "Enter a valid number"
+//         return;
+//     }
+//     let num = Number(numer)
+
+//     if(Comptnum > num){
+//         hint.textContent = "too low"
+//     }
+//     else if(Comptnum < num){
+//         hint.textContent = "too high"
+//     }
+//     else if(Comptnum == num){
+//         hint.textContent = "Congrats your prediction is correct"
+//         score = score + 1
+//         mark.textContent = `Your score is ${score}`
+//     }
+// })
+
+const cells = document.querySelectorAll(".cell")
+const statusText = document.getElementById("status");
+const resetBtn = document.getElementById("reset")
+
+let currentPlayer = "X";
+let gameActive = true;
+let board = ["", "", "", "", "", "", "", "", ""];
+
+const winningCombos =[
+    [0, 1, 2], [3, 4, 5], [6, 7, 8],
+    [0, 3, 6], [1, 4, 7], [2, 5, 8],
+    [0, 4, 8], [2, 4, 6]
+];
+
+cells.forEach((cell, index) => {
+    cell.addEventListener("click", () => {
+        if(!gameActive || board[index] !== "") {
+            return
         }
-    }
-    let output = "";
-    for(let key in freq) {
-        output += `${key}: ${freq[key]}<br>`
-    }
-    resultDiv.innerHTML = output
+        board[index] = currentPlayer;
+        cell.textContent = currentPlayer
+        cell.classList.add("taken");
+
+        if(checkWinner()) {
+            statusText.textContent = `Player ${currentPlayer} Wins`;
+            gameActive = false;
+        }
+        else if(board.every(cell => cell !== "")){
+            statusText.textContent = "It's a Draw"
+            gameActive = false;
+        }
+        else{
+            currentPlayer = currentPlayer === "X" ? "O" : "X";
+            statusText.textContent = `Player ${currentPlayer}'s Turn`;
+        }
+    })
 })
 
+resetBtn.addEventListener("click", function(){
+    currentPlayer = "X"
+    board = ["", "", "", "", "", "", "", "", ""];
+    gameActive = true
+    statusText.textContent = "Payer X's Turn";
+    cells.forEach(cell => {
+        cell.textContent = "";
+        cell.classList.remove("taken")
+    })
+})
 
-
+function checkWinner() {
+    
+        return winningCombos.some(combo => {
+            return combo.every(index => board[index] === currentPlayer)
+        })
+    
+}
