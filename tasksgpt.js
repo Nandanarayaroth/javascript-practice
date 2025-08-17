@@ -1226,57 +1226,176 @@
 // }
 
 
-// shuffle
-let overcell = document.getElementById("overcell")
-let cards = []
-for(let i=1; i<=8; i++){
-    cards.push(i)
-    cards.push(i)
-}
-cards.sort(() => Math.random() - 0.5) 
+// // shuffle
+// let overcell = document.getElementById("overcell")
+// let cards = []
+// for(let i=1; i<=8; i++){
+//     cards.push(i)
+//     cards.push(i)
+// }
+// cards.sort(() => Math.random() - 0.5) 
 
-//  face-down
-for(let i = 0; i < cards.length; i++){
-    let cell = document.createElement("div")
-    cell.classList.add("cell")
-    cell.dataset.value = cards[i]
-    cell.textContent = "❓"
-    overcell.appendChild(cell)
-}
+// //  face-down
+// for(let i = 0; i < cards.length; i++){
+//     let cell = document.createElement("div")
+//     cell.classList.add("cell")
+//     cell.dataset.value = cards[i]
+//     cell.textContent = "❓"
+//     overcell.appendChild(cell)
+// }
 
-// flip logic
-let firstCard = null
-let secondCard = null
-let lockboard = false
+// // flip logic
+// let firstCard = null
+// let secondCard = null
+// let lockboard = false
 
-overcell.addEventListener("click", function(e) {
-    let clicked = e.target
+// overcell.addEventListener("click", function(e) {
+//     let clicked = e.target
 
-    if(!clicked.classList.contains("cell") || lockboard) return
-    if(clicked === firstCard) return
+//     if(!clicked.classList.contains("cell") || lockboard) return
+//     if(clicked === firstCard) return
 
-    clicked.textContent = clicked.dataset.value
+//     clicked.textContent = clicked.dataset.value
 
-    if(!firstCard){
-        firstCard = clicked
-    }
-    else{
-        secondCard = clicked
-        lockboard = true
+//     if(!firstCard){
+//         firstCard = clicked
+//     }
+//     else{
+//         secondCard = clicked
+//         lockboard = true
 
-        if(firstCard.dataset.value === secondCard.dataset.value) {
-            firstCard = null
-            secondCard = null
-            lockboard = false
-        }
-        else{
-            setTimeout(() => {
-                firstCard.textContent = "❓"
-                secondCard.textContent ="❓"
-                firstCard = null
-                secondCard = null
-                lockboard = false
-            }, 1000)
-        }
-    }
-})
+//         if(firstCard.dataset.value === secondCard.dataset.value) {
+//             firstCard = null
+//             secondCard = null
+//             lockboard = false
+//         }
+//         else{
+//             setTimeout(() => {
+//                 firstCard.textContent = "❓"
+//                 secondCard.textContent ="❓"
+//                 firstCard = null
+//                 secondCard = null
+//                 lockboard = false
+//             }, 1000)
+//         }
+//     }
+// })
+
+// document.getElementById("adtask").addEventListener("click", function(){
+
+//     let todo = document.getElementById("todo").value.trim()
+//     console.log(todo)
+
+//     if(todo){
+//         let over = document.getElementById("over")
+//         let list = document.createElement("li")
+//         let checkbox = document.createElement("input")
+//         checkbox.type = "checkbox"
+//         list.appendChild(checkbox)
+
+//         let text = document.createTextNode(`${todo}`)
+//         list.appendChild(text)
+
+//         checkbox.addEventListener("change", function(){
+//             list.style.textDecoration = this.checked ? "line-through" : "none"
+//         })
+
+//         over.appendChild(list)
+//         document.getElementById("todo").value = ""
+        
+//     }
+    
+
+// })
+// let dlt = document.getElementById("dlt").addEventListener("click", function(){
+//             let tasks = over.getElementsByTagName("li")
+//             if(tasks.length > 0){
+//                 over.removeChild(tasks[tasks.length - 1])
+//             }
+// })
+
+// document.getElementById("addColor").addEventListener("click", function(){
+//     let colorInput = document.getElementById("colorInput").value.trim()
+//     let pal = document.getElementById("pal")
+
+//     console.log(colorInput)
+
+//     if(colorInput){
+//        let square = document.createElement("div")
+//         square.id ="palette"
+//         square.style.backgroundColor = `${colorInput}`
+//         pal.appendChild(square)
+//     }
+// })
+
+// document.getElementById("deleteColor").addEventListener("click", function(){
+//     let clr = pal.getElementsByTagName("div")
+//     if(clr.length > 0){
+//         pal.removeChild(clr[clr.length - 1])
+//     }
+// })
+
+
+// let questions =[
+//     {
+//         q: "What is 2 + 2?",
+//         Options: ["3", "4", "5", "6"],
+//         answer : "4"
+//     },
+//     {
+//         q: "what is the capital of france?",
+//         Options: ["Paris", "Rome", "Berlin", "Madrid"],
+//         answer: "Paris"
+//     },
+//     {
+//         q: "Which language is used for web development?",
+//         Options: ["Python", "Javascript", "C++", "Java"],
+//         answer: "Javascript"
+//     }
+// ]
+
+// let currentQuestion = 0;
+// let score = 0
+
+// let questionEl = document.getElementById("question")
+// let optionsEl = document.getElementById("options")
+// let nextBtn = document.getElementById("next-btn")
+// let scoreEl = document.getElementById("score")
+
+// function showQuestion() {
+//     optionsEl.innerHTML = "";
+//     questionEl.textContent = questions[currentQuestion].q
+//     questions[currentQuestion].Options.forEach(Option => {
+//         let btn = document.createElement("button")
+//         btn.textContent = Option
+//         btn.addEventListener("click", selectOption)
+//         optionsEl.appendChild(btn)
+//     })
+// }
+
+// function selectOption(e) {
+//     let selected = e.target.textContent;
+//     let correct = questions[currentQuestion].answer
+
+//     if(selected === correct){
+//         score++;
+//         alert("Correct!")
+//     }else{
+//         alert(`Wrong! Correct answer is: ${correct}`)
+//     }
+//     Array.from(optionsEl.children).forEach(btn => btn.disabled = true)
+// }
+// nextBtn.addEventListener("click", function(){
+//     currentQuestion++;
+//     if(currentQuestion < questions.length){
+//         showQuestion()
+//     }else{
+//         questionEl.textContent = "Quiz Over!";
+//         optionsEl.innerHTML = "";
+//         scoreEl.textContent = `Your score: ${score} / ${questions.length}`
+//     }
+// })
+
+// showQuestion()
+
+//
