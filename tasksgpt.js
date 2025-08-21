@@ -1623,67 +1623,193 @@
 
 
 //  multipurpose function
-function gernerateFibonacci() {
-    let n = parseInt(document.getElementById("inputValue").value)
-    if(isNaN(n) || n<= 0){
-        document.getElementById("result").innerText = "Enter a positive number!"
-        return
-    }
-    let fib = [0,1]
-    for(let i=2; i<n; i++){
-        fib[i] = fib[i - 1] + fib[i -2]
-    }
-    document.getElementById("result").innerText = `Fibonacci (${n} terms): ${fib.slice(0,n)}`
-}
-function checkArmstrong() {
-    let num = parseInt(document.getElementById("inputValue").value)
-    if(isNaN(num)) {
-        document.getElementById("result").innerText = "Enter a valid number"
-        return
-    }
-    let digits = num.toString().split('').map(Number)
-    let n = digits.length
-    let sum = digits.reduce((acc, d) => acc + Math.pow(d,n), 0)
-    let result = (sum === num) ? `${num} is an Armstrong number` : `${num} is NOT an Armstrong number`;
-    document.getElementById("result").innerText = result
-}
- function removeDuplicates() {
-    let input= document.getElementById("inputValue").value.trim()
-    if(!input) {
-        document.getElementById("result").innerText = "Enter some numbers!"
-        return
-    }
-    let arr = input.split(" ").map(Number)
-    let uniqueArr = [...new Set(arr)]
-    document.getElementById("result").innerHTML = `Without duplicates: ${uniqueArr}`
- }
+// function gernerateFibonacci() {
+//     let n = parseInt(document.getElementById("inputValue").value)
+//     if(isNaN(n) || n<= 0){
+//         document.getElementById("result").innerText = "Enter a positive number!"
+//         return
+//     }
+//     let fib = [0,1]
+//     for(let i=2; i<n; i++){
+//         fib[i] = fib[i - 1] + fib[i -2]
+//     }
+//     document.getElementById("result").innerText = `Fibonacci (${n} terms): ${fib.slice(0,n)}`
+// }
+// function checkArmstrong() {
+//     let num = parseInt(document.getElementById("inputValue").value)
+//     if(isNaN(num)) {
+//         document.getElementById("result").innerText = "Enter a valid number"
+//         return
+//     }
+//     let digits = num.toString().split('').map(Number)
+//     let n = digits.length
+//     let sum = digits.reduce((acc, d) => acc + Math.pow(d,n), 0)
+//     let result = (sum === num) ? `${num} is an Armstrong number` : `${num} is NOT an Armstrong number`;
+//     document.getElementById("result").innerText = result
+// }
+//  function removeDuplicates() {
+//     let input= document.getElementById("inputValue").value.trim()
+//     if(!input) {
+//         document.getElementById("result").innerText = "Enter some numbers!"
+//         return
+//     }
+//     let arr = input.split(" ").map(Number)
+//     let uniqueArr = [...new Set(arr)]
+//     document.getElementById("result").innerHTML = `Without duplicates: ${uniqueArr}`
+//  }
 
- function findSecondLarge() {
-    let input = document.getElementById("inputValue").value.trim()
-    if(!input) {
-        document.getElementById("result").innerText = "Enter some numbers!"
-        return
-    }
-    let arr = [...new Set(input.split(" ").map(Number))].sort((a, b) => b - a)
-    if(arr.length < 2){
-        document.getElementById("result").innerText = "No second largest number!"
-        return
-    }
-    document.getElementById("result").innerText= `Second largest: ${arr[1]}`;
- }
+//  function findSecondLarge() {
+//     let input = document.getElementById("inputValue").value.trim()
+//     if(!input) {
+//         document.getElementById("result").innerText = "Enter some numbers!"
+//         return
+//     }
+//     let arr = [...new Set(input.split(" ").map(Number))].sort((a, b) => b - a)
+//     if(arr.length < 2){
+//         document.getElementById("result").innerText = "No second largest number!"
+//         return
+//     }
+//     document.getElementById("result").innerText= `Second largest: ${arr[1]}`;
+//  }
 
-function checkPrime() {
-    let num = parseInt(document.getElementById("inputValue").value)
-    if(isNaN(num) || num < 2) {
-        document.getElementById("result").innerText = "Enter a number greater than 1!"
-        return
+// function checkPrime() {
+//     let num = parseInt(document.getElementById("inputValue").value)
+//     if(isNaN(num) || num < 2) {
+//         document.getElementById("result").innerText = "Enter a number greater than 1!"
+//         return
+//     }
+//     let isPrime = true
+//     for(let i = 2; i<= Math.sqrt(num); i++){
+//         if(num % i === 0){
+//             isPrime = false
+//             break
+//         }
+//     }
+//     document.getElementById("result").innerText = isPrime ? `${num} is Prime` : `${num} is not prime`
+// }
+
+// javascipt multi-feature App
+// function generateFibonacci() {
+//     let n = parseInt(document.getElementById("userInput").value)
+//     if(isNaN(n) || n<= 0){
+//         showResult("Enter a positive number!")
+//         return
+//     }
+//     let fib = [0,1]
+//     for(let i=2; i<n; i++){
+//         fib[i] = fib[i - 1] + fib[i - 2]
+//     }
+//     showResult(`Fibonacci (${n} terms): ${fib.slice(0, n).join(",")}`)
+// }
+
+// function checkArmstrong() {
+//     let num =parseInt(document.getElementById("userInput").value)
+//     if(isNaN(num)) {
+//         showResult("Enter a valid number!")
+//         return
+//     }
+//     let digits = num.toString().split('').map(Number)
+//     let n = digits.length
+//     let sum = digits.reduce((acc, d) => acc + Math.pow(d, n),0)
+//     showResult(sum === num ? `${num} is an Armstrong number` : `${num} is NOT an Armstrong number`)
+// }
+// function checkPrime(){
+//     let num = parseInt(document.getElementById("userInput").value)
+//     if(isNaN(num) || num < 2){
+//         showResult("Enter a number greater than 1")
+//         return;
+//     }
+//     let isPrime = true
+//     for(let i=2; i<=Math.sqrt(num); i++){
+//         if(num % i === 0){
+//             isPrime = false
+//             break
+//         }
+//     }
+//     showResult(isPrime ? `${num} is Prime` : `${num} is NOT Prime`)
+// }
+
+// function reverseString() {
+//     let str  = document.getElementById("userInput").value
+//     if(!str){
+//         showResult("Enter some text!")
+//         return
+//     }
+//     let reversed = str.split("").reverse().join("")
+//     showResult(`Reversed String: ${reversed}`)
+// }
+
+// function checkPalindrome() {
+//     let str = document.getElementById("userInput").value
+//     if(!str) {
+//         showResult("Enter some text!")
+//         return
+//     }
+//     let cleanStr = str.toLowerCase().replace(/[^a-z0-9]/g, '')
+//     let reversed = cleanStr.split("").reverse().join("")
+//     showResult(cleanStr === reversed ? `"${str}" is a Palindrome` : `"${str}" is NOT a Palindrome`)
+// }
+
+// function showResult(msg){
+//     document.getElementById("result").innerText = msg
+// }
+
+// Quiz App
+const quizData = [
+    {
+        question: "Which language runs in a web browser?",
+        options : ["Java", "C", "Python", "JavaScript"],
+        answer:"JavaScript"
+    },
+    {
+        question: "What does CSS stand for?",
+        options: ["Central Style Sheets", "Cascading Style Sheet", "Computer Style Sheets", "Creative Style Sheets"],
+        answer: "Cascading Style Sheet"
+    },
+    {
+        question: "What is the correct HTML elements for inserting a line break?",
+        options: ["<lb>", "<br>", "<brak>", "<line>"],
+        answer: "<br>"
     }
-    let isPrime = true
-    for(let i = 2; i<= Math.sqrt(num); i++){
-        if(num % i === 0){
-            isPrime = false
-            break
-        }
-    }
-    document.getElementById("result").innerText = isPrime ? `${num} is Prime` : `${num} is not prime`
+]
+let currentIndex = 0;
+let score = 0
+
+function loadQuestion() {
+    const currentQuiz = quizData[currentIndex]
+    document.getElementById("question").innerText = currentQuiz.question
+    const optionsContainer = document.getElementById("options")
+    optionsContainer.innerHTML ="";
+    currentQuiz.options.forEach(option => {
+        const div = document.createElement("div")
+        div.classList.add("option")
+        div.innerText = option
+        div.onclick = () => selectOption(option)
+        // option.appendChild(div)
+        optionsContainer.appendChild(div)
+    })
 }
+
+function selectOption(selected) {
+    const correct = quizData[currentIndex].answer
+    if(selected === correct) {
+        score++
+    }
+    document.getElementById("result").innerText = 
+        selected === correct ? "Correct" : `Wrong Answer: ${correct}`;
+
+}
+
+function nextQuestion() {
+    if(currentIndex < quizData.length - 1){
+        currentIndex++;
+        document.getElementById("result").innerText = ""
+        loadQuestion()
+    }
+    else{
+        document.querySelector(".quiz-container").innerHTML = 
+        `<h2>Quiz Completed! </h2><p>Your Score: ${score} / ${quizData.length}</p>`
+    }
+}
+
+loadQuestion()

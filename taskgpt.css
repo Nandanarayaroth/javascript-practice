@@ -139,7 +139,7 @@ button:active{
     height: 50px;
     width: 50px;
 } */
-
+/* 
 body{
     font-family: Arial;
     padding: 20px;
@@ -148,4 +148,88 @@ input, button{
     margin-top: 10px;
     font-weight: bold;
     color: #333;
+} */
+
+/* utility App */
+/* body{
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    text-align: center;
+    padding: 20px;
+}
+h2{
+    color:  #333;
+}
+input{
+    padding: 10px;
+    width: 250px;
+    margin: 10px;
+    font-size: 16px;
+}
+button{
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    background:  #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+button:hover{
+    background: #0056b3;
+}
+.result{
+    margin-top: 20px;
+    font-size: 18px;
+    color: #222;
+    font-weight: bold;
+} */
+
+/* Quiz App */
+body{
+    font-family: Arial, sanas-serif;
+    background: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+}
+.quiz-container{
+    background: #fff;
+    padding: 20px;
+    width: 400px;
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h2{
+    margin-bottom: 15px;
+}
+.option {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    background:  #e9ecef;
+    border-radius:  5px;
+    cursor: pointer;
+}
+.option:hover{
+    background: #d6d8db;
+}
+.btn{
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.btn:hover{
+    background: #0056b3;
+}
+.result{
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 18px;
 }
