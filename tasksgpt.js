@@ -1398,11 +1398,292 @@
 
 // showQuestion()
 
-let num1 = 5
-let  num2 =10
-if(num1<num2){
-    console.log("wow")
+// let num1 = 5
+// let  num2 =10
+// if(num1<num2){
+//     console.log("wow")
+// }
+// else{
+//     console.log("not much")
+// }
+
+// function reverse(str){
+//     return str.split("").reverse().join("")
+// }
+
+// console.log(reverse("hello"))
+
+// document.getElementById("btn").addEventListener("click", function(){
+//     let str = document.getElementById("str").value
+//     let result = document.getElementById("result")
+
+//     let propty = str.split("").reverse().join("")
+
+//     result.textContent = `${propty}`
+// })
+
+// document.getElementById("btn").addEventListener("click", function(){
+//     let str = document.getElementById("str").value
+//     let result = document.getElementById("result")
+//     let len = str.length
+//     let palindrome = true
+
+//     for(let i=0; i<str.length/2; i++){
+//         if(str[i] !== str[len - 1 - i]){
+//             palindrome = false
+//         }
+//     }
+//     result.textContent = palindrome ? "palindrome" : "not palindrome"
+    
+// })
+
+// function CounterVovel(str){
+//     let counter = 0
+
+//     for(let i=0; i<str.length; i++){
+//         if(str[i]==="a" || str[i] === "A"){
+//             counter = counter + 1
+//         }
+//         else if(str[i] === "e" || str[i] === "E"){
+//             counter = counter + 1
+//         }
+//         else if(str[i] === "i" || str[i] === "I"){
+//             counter = counter + 1
+//         }
+//         else if(str[i] === "o" || str[i] === "O"){
+//             counter = counter + 1
+//         }
+//         else if(str[i] === "u" || str[i] === "U"){
+//             counter = counter + 1
+//         }
+//     }
+//     console.log(counter)
+// }
+
+// CounterVovel("javascript")
+
+// document.getElementById("btn").addEventListener("click", function(){
+//     let str = document.getElementById("str").value
+//     let result = document.getElementById("result")
+//     let counter = 0
+
+//     for(let i=0; i<str.length; i++){
+//         if(str[i] == "a" || str[i] == "A"){
+//             counter = counter + 1
+//         }
+//         else if(str[i] == "e" || str[i] =="E"){
+//             counter = counter + 1
+//         }
+//         else if(str[i] == "i" || str[i] == "I"){
+//             counter = counter + 1
+//         }
+//         else if(str[i] == "o" || str[i] == "O"){
+//             counter = counter + 1
+//         }
+//         else if(str[i] == "u" || str[i] == "U"){
+//             counter = counter + 1
+//         }
+//     }
+//     result.textContent = `${counter}`
+
+// })
+
+// document.getElementById("btn").addEventListener("click", function(){
+//     let result = document.getElementById("result")
+//    let  str = document.getElementById("str").value
+//     let temp = str.split("")
+//     let sum = 0
+
+//     for(let i=0; i<temp.length; i++){
+//         sum = sum + Number(temp[i])
+//     }
+//     result.textContent = `${sum}`
+// })
+
+// document.getElementById("btn").addEventListener("click", function(){
+//     let result = document.getElementById("result")
+//     let str = document.getElementById("str").value
+//     let temp = str.split("")
+//     let sample = Number(temp[0])
+//     let store
+
+//     for(let i=0; i<temp.length; i++){
+//         if(sample<Number(temp[i])){
+//             sample=Number(temp[i])
+//         }
+//     }
+//     result.textContent = `${sample}`
+// })
+
+// document.getElementById("btn").addEventListener("click", function(){
+//     let result = document.getElementById("result")
+//     let num = Number(document.getElementById("num").value)
+//     let temp = 1
+
+//    if(num>1){
+//     for(let i=2;i<=num;i++){
+//         temp = temp * i
+//     }}
+
+//     result.textContent = `${temp}`
+// })
+
+// document.getElementById("btn").addEventListener("click", function(){
+//     let result = document.getElementById("result")
+//     let num = Number(document.getElementById("num").value)
+//     let flag = true
+    
+//     if(num>1){
+//         for(let i=2; i<num; i++){
+//             if(num % i === 0){
+//                 flag = false
+//             }
+//         }
+//         result.textContent = flag ? "Its a prime" : "Its not a prime"
+//     }
+//     else{
+//         result.textContent = `Enter a greater than 1`
+//     }
+// })
+
+// let arr = [4, 2, 7, 1]
+
+// let temp = [arr[0]]
+// let store = []
+
+// for(let i=0; i<arr.length - 1; i++){
+//     // if(temp[i] > arr[i]){
+//     //     store[i] = arr[i]
+//     // }
+//     for(let j = 0; j< arr.length-i-1; j++){
+//         if(arr[j] > arr[j + 1]){
+//             let temp = arr[j]
+//             arr[j] = arr[j + 1]
+//             arr[j + 1] = temp
+//         }
+//     }
+// }
+// console.log(arr)
+
+// let arr = [1,2,2,3,4,4]
+// let temp = []
+
+// let uniArr = arr.filter((value, index) => arr.indexOf(value) === index)
+// console.log(uniArr)
+
+// let arr = [5, 9, 2, 8]
+
+// arr.sort((a,b) => b - a)
+
+// console.log(arr[1])
+
+// let arr = [5, 9, 2, 8]
+
+// let temp
+
+// for(let i = 0; i< arr.length; i++){
+//     for(let j=0; j<arr.length-i-1; j++){
+//         if(arr[j] > arr[j+1]){
+//             temp = arr[j]
+//             arr[j] = arr[j+1]
+//             arr[j+1] = temp
+//         }
+//     }
+// }
+// console.log(arr[arr.length-2])
+
+// document.getElementById("btn").addEventListener("click", function(){
+//     let num = Number(document.getElementById("num").value)
+//     let result = document.getElementById("result")
+//     let temp
+//     let store = [0,1]
+//     for(let i = 2; i<num; i++){
+//         store[i] = store[i-1] + store[i - 2]
+//     }
+//     result.textContent = `${store}`
+//     console.log(store)
+//     // for(let i=0; i<num; i++){
+//     //     result.textContent = `${store}`
+//     // }
+
+    
+// })
+
+
+// function isAmstrong(num) {
+//     let digits = num.toString().split('').map(Number)
+//     let n = digits.length
+
+//     let sum = digits.reduce((acc, digit) => acc + Math.pow(digit, n), 0)
+
+//     return sum === num
+// }
+// console.log(isAmstrong(153))
+// console.log(isAmstrong(123))
+
+
+//  multipurpose function
+function gernerateFibonacci() {
+    let n = parseInt(document.getElementById("inputValue").value)
+    if(isNaN(n) || n<= 0){
+        document.getElementById("result").innerText = "Enter a positive number!"
+        return
+    }
+    let fib = [0,1]
+    for(let i=2; i<n; i++){
+        fib[i] = fib[i - 1] + fib[i -2]
+    }
+    document.getElementById("result").innerText = `Fibonacci (${n} terms): ${fib.slice(0,n)}`
 }
-else{
-    console.log("not much")
+function checkArmstrong() {
+    let num = parseInt(document.getElementById("inputValue").value)
+    if(isNaN(num)) {
+        document.getElementById("result").innerText = "Enter a valid number"
+        return
+    }
+    let digits = num.toString().split('').map(Number)
+    let n = digits.length
+    let sum = digits.reduce((acc, d) => acc + Math.pow(d,n), 0)
+    let result = (sum === num) ? `${num} is an Armstrong number` : `${num} is NOT an Armstrong number`;
+    document.getElementById("result").innerText = result
+}
+ function removeDuplicates() {
+    let input= document.getElementById("inputValue").value.trim()
+    if(!input) {
+        document.getElementById("result").innerText = "Enter some numbers!"
+        return
+    }
+    let arr = input.split(" ").map(Number)
+    let uniqueArr = [...new Set(arr)]
+    document.getElementById("result").innerHTML = `Without duplicates: ${uniqueArr}`
+ }
+
+ function findSecondLarge() {
+    let input = document.getElementById("inputValue").value.trim()
+    if(!input) {
+        document.getElementById("result").innerText = "Enter some numbers!"
+        return
+    }
+    let arr = [...new Set(input.split(" ").map(Number))].sort((a, b) => b - a)
+    if(arr.length < 2){
+        document.getElementById("result").innerText = "No second largest number!"
+        return
+    }
+    document.getElementById("result").innerText= `Second largest: ${arr[1]}`;
+ }
+
+function checkPrime() {
+    let num = parseInt(document.getElementById("inputValue").value)
+    if(isNaN(num) || num < 2) {
+        document.getElementById("result").innerText = "Enter a number greater than 1!"
+        return
+    }
+    let isPrime = true
+    for(let i = 2; i<= Math.sqrt(num); i++){
+        if(num % i === 0){
+            isPrime = false
+            break
+        }
+    }
+    document.getElementById("result").innerText = isPrime ? `${num} is Prime` : `${num} is not prime`
 }

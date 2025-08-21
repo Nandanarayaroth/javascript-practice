@@ -134,8 +134,18 @@ button:active{
     border: 1px solid black;
 } */
 
-#palette{
-    /* background-color: aqua; */
+/* #palette{
+   
     height: 50px;
     width: 50px;
+} */
+
+body{
+    font-family: Arial;
+    padding: 20px;
+}
+input, button{
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
 }
