@@ -2273,25 +2273,60 @@
 
 
 // CUSTOM MODAL POPUP
-const modal = document.getElementById('myModal')
-const openBtn = document.getElementById('openModalBtn')
-const closeBtn = document.getElementById('closeBtn')
+// const modal = document.getElementById('myModal')
+// const openBtn = document.getElementById('openModalBtn')
+// const closeBtn = document.getElementById('closeBtn')
 
-openBtn.addEventListener('click', () => {
-    modal.style.display = 'block'
-})
+// openBtn.addEventListener('click', () => {
+//     modal.style.display = 'block'
+// })
 
-closeBtn.addEventListener('click', () => {
-    modal.style.display = "none"
-})
-window.addEventListener('click', (e) => {
-    if(e.target === modal){
-        modal.style.display = 'none'
-    }
-})
-window.addEventListener('keydown', (e) => {
-    if(e.key === 'Escape'){
-        modal.style.display = 'none'
-    }
-})
+// closeBtn.addEventListener('click', () => {
+//     modal.style.display = "none"
+// })
+// window.addEventListener('click', (e) => {
+//     if(e.target === modal){
+//         modal.style.display = 'none'
+//     }
+// })
+// window.addEventListener('keydown', (e) => {
+//     if(e.key === 'Escape'){
+//         modal.style.display = 'none'
+//     }
+// })
 // END OF CUSTOM MODAL POPUP
+
+
+// DRAG & DROP TO-DO
+const tasks = document.querySelectorAll('.task')
+const columns = document.querySelectorAll('.column')
+
+let draggedTask = null
+
+tasks.forEach(task => {
+    task.addEventListener('dragstart', (e) => {
+        draggedTask = task
+        e.dataTransfer.effectAllowed = "move"
+        task.style.opacity = '0.5'
+        // setTimeout(() => task.style.display = 'none', 0)
+    })
+    task.addEventListener('dragend', () => {
+        draggedTask.style.opacity = '1'
+        draggedTask = null
+        // setTimeout(() => {
+        //     draggedTask.style.display = 'block'
+        //     draggedTask = null
+        // }, 0)
+    })
+})
+
+columns.forEach(column => {
+    column.addEventListener('dragover', e => e.preventDefault())
+    column.addEventListener('drop', e => {
+        e.preventDefault()
+        if(draggedTask){
+            column.appendChild(draggedTask)
+        }
+    })
+})
+// END OF TO-DO

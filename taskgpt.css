@@ -560,7 +560,7 @@ button:hover{
 
 
 /* CUSTOM MODAL POPUP */
-body{
+/* body{
     font-family: Arial, sans-serif;
 }
 .modal{
@@ -590,5 +590,39 @@ body{
     right: 15px;
     font-size: 24px;
     cursor: pointer;
-}
+} */
 /* END OF CUSTOM MODAL POPUP */
+
+
+/* GRAG & DROP TO-DO */
+body{
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+.board{
+    display: flex;
+    gap: 20px;
+}
+.column{
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    width: 250px;
+    min-height: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.column h2 {
+    text-align: center;
+}
+.task{
+    background: #007BFF;
+    color: #fff;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 6px;
+    cursor: grab;
+}
+/* END OF TO-DO */
