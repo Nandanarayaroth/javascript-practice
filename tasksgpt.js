@@ -4,6 +4,7 @@
 // document.getElementById("btn").addEventListener("click", function(){
 //     let num = Number(document.getElementById("num").value)
 
+
 //     let final = document.getElementById("finall")
 //     if(num % 2 === 0){
 //         final.textContent = "even"
@@ -1755,61 +1756,337 @@
 // }
 
 // Quiz App
-const quizData = [
-    {
-        question: "Which language runs in a web browser?",
-        options : ["Java", "C", "Python", "JavaScript"],
-        answer:"JavaScript"
-    },
-    {
-        question: "What does CSS stand for?",
-        options: ["Central Style Sheets", "Cascading Style Sheet", "Computer Style Sheets", "Creative Style Sheets"],
-        answer: "Cascading Style Sheet"
-    },
-    {
-        question: "What is the correct HTML elements for inserting a line break?",
-        options: ["<lb>", "<br>", "<brak>", "<line>"],
-        answer: "<br>"
+// const quizData = [
+//     {
+//         question: "Which language runs in a web browser?",
+//         options : ["Java", "C", "Python", "JavaScript"],
+//         answer:"JavaScript"
+//     },
+//     {
+//         question: "What does CSS stand for?",
+//         options: ["Central Style Sheets", "Cascading Style Sheet", "Computer Style Sheets", "Creative Style Sheets"],
+//         answer: "Cascading Style Sheet"
+//     },
+//     {
+//         question: "What is the correct HTML elements for inserting a line break?",
+//         options: ["<lb>", "<br>", "<brak>", "<line>"],
+//         answer: "<br>"
+//     }
+// ]
+// let currentIndex = 0;
+// let score = 0
+
+// function loadQuestion() {
+//     const currentQuiz = quizData[currentIndex]
+//     document.getElementById("question").innerText = currentQuiz.question
+//     const optionsContainer = document.getElementById("options")
+//     optionsContainer.innerHTML ="";
+//     currentQuiz.options.forEach(option => {
+//         const div = document.createElement("div")
+//         div.classList.add("option")
+//         div.innerText = option
+//         div.onclick = () => selectOption(option)
+//         // option.appendChild(div)
+//         optionsContainer.appendChild(div)
+//     })
+// }
+
+// function selectOption(selected) {
+//     const correct = quizData[currentIndex].answer
+//     if(selected === correct) {
+//         score++
+//     }
+//     document.getElementById("result").innerText = 
+//         selected === correct ? "Correct" : `Wrong Answer: ${correct}`;
+
+// }
+
+// function nextQuestion() {
+//     if(currentIndex < quizData.length - 1){
+//         currentIndex++;
+//         document.getElementById("result").innerText = ""
+//         loadQuestion()
+//     }
+//     else{
+//         document.querySelector(".quiz-container").innerHTML = 
+//         `<h2>Quiz Completed! </h2><p>Your Score: ${score} / ${quizData.length}</p>`
+//     }
+// }
+
+// loadQuestion()
+
+// WeatherApp
+// async function getWeather() {
+//     const city = document.getElementById("city").value.trim()
+//     const apiKey = "YOUR_API-KEY";
+//     if(!city) {
+//         document.getElementById("weatherInfo").innerText = "Please enter a city name!"
+//         return
+//     }
+//     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
+//     try {
+//         const response = await fetch(url)
+
+//         if(!response.ok) {
+//             throw new Error("City not found")
+//         }
+//         const data = await response.json()
+//         const temp = data.main.temp
+//         const condition = data.weather[0].description;
+//         const icon = data.weather[0].icon
+
+//         document.getElementById("weatherInfo").innerHTML = `
+//             <p><strong>${data.name}</strong></p>
+//             <p>Temperature: ${temp}C</p>
+//             <p>Condition: ${condition}</p>
+//             <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="Weather icon">
+//         `
+//     }
+//     catch(error){
+//         document.getElementById("weatherInfo").innerText = "Error: " + error.message
+//     }
+// }
+
+// let PlayerScore = 0
+// let computerScore = 0
+
+// function play(playChoice) {
+//     const choice = ['rock', 'paper', 'scissors']
+//     const ComputerChoice = choice[Math.floor(Math.random() * 3)]
+
+//     let result = ''
+//     if(playChoice === ComputerChoice){
+//         result = `It's a draw! Both chose ${playChoice}`
+//     }else if(
+//         (playChoice === 'rock' && ComputerChoice === 'scissors') ||
+//         (playChoice === 'paper' && ComputerChoice === 'rock') ||
+//         (playChoice === 'scissors' && computerScore === 'paper')
+//     ){
+//         result = `You win! ${playChoice} beats ${ComputerChoice}`
+//         PlayerScore++
+//     }else{
+//         result = `You lose! ${ComputerChoice} beats ${playChoice}`
+//         computerScore++
+//     }
+
+//     document.getElementById('result').innerText = result
+//     document.getElementById('score').innerText = `player: ${PlayerScore} | Computer: ${computerScore}`
+// }
+
+// let secretNumber = Math.floor(Math.random() * 100) + 1
+// let attempts = 0
+
+// function checkGuess() {
+//     const guess = Number(document.getElementById('guessInput').value)
+//     attempts++
+
+//     let feedback = ''
+//     if(guess === secretNumber){
+//         feedback = `Correct! The number was ${secretNumber}. You guessed it in ${attempts} attempts`
+//     }else if(guess > secretNumber){
+//         feedback = `Too high!  Try again`
+//     }
+//     else if(guess < secretNumber){
+//         feedback = `Too low! Try again`
+//     }else{
+//         feedback = `Please enter a valid number`
+//     }
+//     document.getElementById('feedback').innerText = feedback
+//     document.getElementById('attempts').innerText = `Attempts: 0`;
+//     document.getElementById('guessInput').value = ''
+// } 
+
+
+// document.getElementById("Changer").addEventListener("click", function(){
+//     let color = `hsl(${Math.floor(Math.random() * 360)}, 70%, 70%)`
+//     let detailes = document.querySelector('.base')
+//     detailes.style.backgroundColor = color
+// })
+
+// document.getElementById("timer").addEventListener("click", function(){
+    
+//     const now = new Date()
+//     const timeString = now.toLocaleTimeString()
+//     document.getElementById('result').textContent = timeString
+// })
+
+// document.getElementById("add").addEventListener("click", function() {
+//     let layout = document.getElementById("layout")
+
+//     let kutta = document.createElement('imput')
+//     kutta.type = "text"
+    
+//     layout.appendChild(kutta)
+// })
+
+// const taskInput = document.getElementById('taskInput')
+// const addBtn = document.getElementById('add')
+// const taskList = document.getElementById('taskList')
+
+// let tasks = JSON.parse(localStorage.getItem('tasks')) || []
+
+// function saveTasks() {
+//     localStorage.setItem('tasks', JSON.stringify(tasks))
+// }
+
+// function renderTasks() {
+//     taskList.innerHTML = '';
+//     tasks.forEach((task, index) => {
+//         const li = document.createElement('li')
+//         if(task.completed) li.classList.add('completed')
+
+//         const span = document.createElement('span')
+//         span.textContent = task.text
+
+//         span.addEventListener('click', () => {
+//             tasks[index].completed = !tasks[index].completed
+//             saveTasks()
+//             renderTasks()
+//         })
+//         const deleteBtn = document.createElement('button')
+//         deleteBtn.textContent = 'Delete'
+//         deleteBtn.classList.add('delete-btn')
+//         deleteBtn.addEventListener('click', () => {
+//             tasks.splice(index, 1)
+//             saveTasks()
+//             renderTasks()
+//         })
+
+//         li.appendChild(span)
+//         li.appendChild(deleteBtn)
+//         li.appendChild(li)
+//     })
+// }
+
+// addBtn.addEventListener('click', () => {
+//     const taskText = taskInput.ariaValueMax.trim()
+//     if(taskText !== ''){
+//         tasks.push({text: taskText, completed: false})
+//         taskInput.value = '';
+//         saveTasks();
+//         renderTasks()
+//     }
+// })
+
+// taskInput.addEventListener('keypress', (e) => {
+//     if(e.key === 'Enter'){
+//         addBtn.click()
+//     }
+// })
+
+// renderTasks()
+
+
+// const quiz = [
+//     {
+//         question: "What is 2 + 2? ",
+//         options: ["3", "4", "5", "6"],
+//         answer: "4"
+//     },
+//     {
+//         question: "What is the capital of France?", 
+//         options: ["London", "Berlin", "Paris", "Rome"],
+//         answer: "Paris"
+//     },
+//     {
+//         question: "Which language runs in a browser?", 
+//         options: ["Python", "Java", "Javascript", "C++"],
+//         answer: "Javascript"
+//     }
+// ]
+
+// let currentQuestion = 0
+
+// const questionEl = document.getElementById('question')
+// const optionBtn = document.querySelectorAll('.option')
+// const feedbackEl = document.getElementById('feedback')
+
+// function loadQuestion() {
+//     const q = quiz[currentQuestion]
+//     questionEl.textContent = q.question
+//     optionBtn.forEach((btn, index) => {
+//         btn.textContent = q.options[index]
+//         btn.disabled = false
+//     })
+//     feedbackEl.textContent = ''
+// }
+
+// optionBtn.forEach(btn => {
+//     btn.addEventListener('click', () => {
+//         const selected = btn.textContent
+//         const correct = quiz[currentQuestion].answer
+
+//         if(selected === correct){
+//             feedbackEl.textContent = "Correct!"
+//             feedbackEl.style.color = "green"
+//         }
+//         else{
+//             feedbackEl.textContent = `Wrong! Correct answer: ${correct}`;
+//             feedbackEl.style.color = "red"
+//         }
+//         optionBtn.forEach(b => b.disabled = true)
+
+//         setTimeout(() => {
+//             currentQuestion++
+//             if(currentQuestion < quiz.length){
+//                 loadQuestion()
+//             }
+//             else{
+//                 questionEl.textContent = "Quiz Finished!"
+//                 feedbackEl.textContent = '';
+//                 optionBtn.forEach(b => b.style.display = 'none')
+//             }
+//         }, 1500)
+//     })
+// })
+// loadQuestion()
+
+// const billInput = document.getElementById('bill')
+// const tipInput = document.getElementById('tip')
+// const peopleInput = document.getElementById('people')
+// const tipPerPersonEl = document.getElementById('tipPerPerson')
+// const totalPerPersonEl = document.getElementById('totalPerPerson')
+
+// function calculateTip(){
+//     const bill = parseFloat(billInput.value) || 0
+//     const tipPercent = parseFloat(tipInput.value) || 0
+//     const people = parseInt(peopleInput.value) || 1
+
+//     if(people <= 0){
+//         tipPerPersonEl.textContent = '0.00'
+//         totalPerPersonEl.textContent = '0.00'
+//         return
+//     }
+
+//     const totalTip = bill * (tipPercent / 100)
+//     const tipPerPerson = totalTip / people
+//     const totalPerPerson = (bill + totalTip) / people
+
+//     tipPerPersonEl.textContent = tipPerPerson.toFixed(2)
+//     totalPerPersonEl.textContent = totalPerPerson.toFixed(2)
+// }
+
+// billInput.addEventListener('input', calculateTip)
+// tipInput.addEventListener('input', calculateTip)
+// peopleInput.addEventListener('input', calculateTip)
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const quotes = [
+    "The best way to get started is to quit talking and begin doing.",
+    "Don't let yesterday take up too much of today",
+    "It's not whether you get knocked down, it's whether you get up.",
+    "If you are working on something exciting, it will keep you get up.",
+    "Success is not in what you have, but who you are.",
+    "Hard work beats talent when talent doesn't work hard."
+    ]
+
+    const quoteEl = document.getElementById('quote')
+    const newQuoteBtn = document.getElementById('newQuoteBtn')
+
+    function showRandomQuote() {
+        const randomIndex = Math.floor(Math.random() * quotes.length)
+        quoteEl.textContent = quotes[randomIndex]
     }
-]
-let currentIndex = 0;
-let score = 0
-
-function loadQuestion() {
-    const currentQuiz = quizData[currentIndex]
-    document.getElementById("question").innerText = currentQuiz.question
-    const optionsContainer = document.getElementById("options")
-    optionsContainer.innerHTML ="";
-    currentQuiz.options.forEach(option => {
-        const div = document.createElement("div")
-        div.classList.add("option")
-        div.innerText = option
-        div.onclick = () => selectOption(option)
-        // option.appendChild(div)
-        optionsContainer.appendChild(div)
-    })
-}
-
-function selectOption(selected) {
-    const correct = quizData[currentIndex].answer
-    if(selected === correct) {
-        score++
-    }
-    document.getElementById("result").innerText = 
-        selected === correct ? "Correct" : `Wrong Answer: ${correct}`;
-
-}
-
-function nextQuestion() {
-    if(currentIndex < quizData.length - 1){
-        currentIndex++;
-        document.getElementById("result").innerText = ""
-        loadQuestion()
-    }
-    else{
-        document.querySelector(".quiz-container").innerHTML = 
-        `<h2>Quiz Completed! </h2><p>Your Score: ${score} / ${quizData.length}</p>`
-    }
-}
-
-loadQuestion()
+    newQuoteBtn.addEventListener('click', showRandomQuote)
+})
