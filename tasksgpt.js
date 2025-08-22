@@ -2071,22 +2071,202 @@
 // peopleInput.addEventListener('input', calculateTip)
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    const quotes = [
-    "The best way to get started is to quit talking and begin doing.",
-    "Don't let yesterday take up too much of today",
-    "It's not whether you get knocked down, it's whether you get up.",
-    "If you are working on something exciting, it will keep you get up.",
-    "Success is not in what you have, but who you are.",
-    "Hard work beats talent when talent doesn't work hard."
-    ]
+// document.addEventListener('DOMContentLoaded', () => {
+//     const quotes = [
+//     "The best way to get started is to quit talking and begin doing.",
+//     "Don't let yesterday take up too much of today",
+//     "It's not whether you get knocked down, it's whether you get up.",
+//     "If you are working on something exciting, it will keep you get up.",
+//     "Success is not in what you have, but who you are.",
+//     "Hard work beats talent when talent doesn't work hard."
+//     ]
 
-    const quoteEl = document.getElementById('quote')
-    const newQuoteBtn = document.getElementById('newQuoteBtn')
+//     const quoteEl = document.getElementById('quote')
+//     const newQuoteBtn = document.getElementById('newQuoteBtn')
 
-    function showRandomQuote() {
-        const randomIndex = Math.floor(Math.random() * quotes.length)
-        quoteEl.textContent = quotes[randomIndex]
+//     function showRandomQuote() {
+//         const randomIndex = Math.floor(Math.random() * quotes.length)
+//         quoteEl.textContent = quotes[randomIndex]
+//     }
+//     newQuoteBtn.addEventListener('click', showRandomQuote)
+// })
+
+
+// let expenses = JSON.parse(localStorage.getItem('expenses')) || []
+
+// const expenseList = document.getElementById('expenseList')
+// const totalAmountEl = document.getElementById('totalAmount')
+// const addExpenseBtn = document.getElementById('addExpenseBtn')
+// const expenseNameInput = document.getElementById('expenseName')
+// const expenseAmountInput = document.getElementById('expenseAmount')
+
+// function renderExpenses() {
+//     expenseList.innerHTML = '';
+//     let total = 0;
+//     expenses.forEach((expense, index) => {
+//         total += expense.amount
+//         const li = document.createElement('li')
+//         li.innerHTML = `
+//             ${expense.name} - $${expense.amount.toFixed(2)}
+//             <span class="delete-btn" data-index="${index}">X</span>
+//         `;
+//         expenseList.appendChild(li)
+//     })
+//     totalAmountEl.textContent = total.toFixed(2)
+
+//     document.querySelectorAll('.delete-btn').forEach(btn => {
+//         btn.addEventListener('click', () => {
+//             const index = btn.getAttribute('data-index')
+//             expenses.splice(index, 1)
+//             localStorage.setItem('expenses', JSON.stringify(expenses))
+//             renderExpenses()
+//         })
+//     })
+// }
+
+// addExpenseBtn.addEventListener('click', () => {
+//     const name = expenseNameInput.value.trim()
+//     const amount = parseFloat(expenseAmountInput.value)
+//     if(name && !isNaN(amount) && amount > 0){
+//         expenses.push({name, amount})
+//         localStorage.setItem('expenses', JSON.stringify(expenses))
+//         expenseNameInput.value = ''
+//         expenseAmountInput.value = ''
+//         renderExpenses()
+//     }
+//     else{
+//         alert('Please enter a valid name and amount.')
+//     }
+// })
+// renderExpenses()
+
+// const paragraphEl = document.getElementById('paragraph')
+// const typingInput = document.getElementById('typingInput')
+// const wpmEl = document.getElementById('wpm')
+// const errosEl = document.getElementById('errors')
+
+// const text = paragraphEl.textContent
+// let startTime = null
+// let errors = 0
+
+// typingInput.addEventListener('input', () => {
+//     if (!startTime) startTime = new Date()
+//     const typed = typingInput.value
+//     errors = 0
+
+//     for(let i=0; i<typed.length; i++){
+//         if(typed[i] !== text[i]) errors++
+//     }
+
+//     errosEl.textContent = errors
+
+//     const now = new Date()
+//     const minutes= (now - startTime) / 100 /60;
+//     const wordsTyped = typed.trim().split(/\s+/).length
+//     const wpm = Math.round(wordsTyped / minutes)
+//     wpmEl.textContent = isNaN(wpm) ? 0 : wpm
+
+//     if(typed === text) {
+//         typingInput.disabled = true
+//     }
+// })
+
+// const toggleBtn = document.getElementById('toggleBtn')
+// const body = document.body
+
+// const savedTheme = localStorage.getItem('theme')
+// if(savedTheme) {
+//     body.classList.add(savedTheme)
+// }
+// else{
+//     body.classList.add('light')
+// }
+
+// toggleBtn.addEventListener('click', () => {
+//     if(body.classList.contains('light')){
+//         body.classList.replace('light','dark')
+//         localStorage.setItem('theme', 'dark')
+//     }
+//     else{
+//         body.classList.replace('dark', 'light')
+//         localStorage.setItem('theme', 'light')
+//     }
+// })
+
+// document.getElementById('btn').addEventListener("click", function(){
+//     let result = document.getElementById('result')
+
+//     let now = new Date()
+//     let timer = now.toLocaleTimeString()
+//     result.textContent = timer
+// })
+
+// function updateClock() {
+//     const now = new Date()
+//     const hours =String(now.getHours()).padStart(2, '0')
+//     const minutes = String(now.getMinutes()).padStart(2, '0')
+//     const seconds = String(now.getSeconds()).padStart(2,'0')
+
+//     document.getElementById('result').textContent=`${hours}:${minutes}:${seconds}`
+// }
+
+// const textarea = document.getElementById('msg')
+// const counter = document.getElementById('count')
+// const LIMIT = 100
+// const  WARN_THRESHOLD = 20
+
+// function updateCounts() {
+//     const remaining = LIMIT - textarea.value.length
+//     counter.textContent = `${remaining} character${remaining === 1 ? '' : 's'} remaining`;
+
+//     counter.classList.remove('warn', 'danger')
+//     if(remaining <= 0){
+//         counter.classList.add('danger')
+//     }
+//     else if(remaining <= WARN_THRESHOLD){
+//         counter.classList.add('warn')
+//     }
+// }
+
+// updateCounts()
+// textarea.addEventListener('input', updateCounts)
+
+// const passwordInput = document.getElementById('password')
+// const toggleBtn = document.getElementById('toggleBtn')
+
+// toggleBtn.addEventListener('click', () => {
+//     if(passwordInput.type === 'password'){
+//         passwordInput.type = 'text'
+//         toggleBtn.text = '🙈'
+//     }else{
+//         passwordInput.type = 'password'
+//         toggleBtn.textContent = '👁'
+//     }
+// })
+
+const timeInput = document.getElementById('timeInput')
+const startBtn = document.getElementById('startBtn')
+const display = document.getElementById('display')
+
+let countdownInterval
+
+startBtn.addEventListener('click', () => {
+    let time = parseInt(timeInput.value)
+
+    if(isNaN(time) || time <= 0){
+        alert('Please enter a valid time in seconds')
+        return
     }
-    newQuoteBtn.addEventListener('click', showRandomQuote)
+    clearInterval(countdownInterval)
+
+    display.textContent = `Time: ${time}`;
+    countdownInterval = setInterval(() => {
+        time--;
+        display.textContent =`Time: ${time}`
+
+        if(time <= 0){
+            clearInterval(countdownInterval)
+            alert('⏰ Time is up!')
+        }
+    },1000)
 })
