@@ -2244,29 +2244,54 @@
 //     }
 // })
 
-const timeInput = document.getElementById('timeInput')
-const startBtn = document.getElementById('startBtn')
-const display = document.getElementById('display')
+// const timeInput = document.getElementById('timeInput')
+// const startBtn = document.getElementById('startBtn')
+// const display = document.getElementById('display')
 
-let countdownInterval
+// let countdownInterval
 
-startBtn.addEventListener('click', () => {
-    let time = parseInt(timeInput.value)
+// startBtn.addEventListener('click', () => {
+//     let time = parseInt(timeInput.value)
 
-    if(isNaN(time) || time <= 0){
-        alert('Please enter a valid time in seconds')
-        return
-    }
-    clearInterval(countdownInterval)
+//     if(isNaN(time) || time <= 0){
+//         alert('Please enter a valid time in seconds')
+//         return
+//     }
+//     clearInterval(countdownInterval)
 
-    display.textContent = `Time: ${time}`;
-    countdownInterval = setInterval(() => {
-        time--;
-        display.textContent =`Time: ${time}`
+//     display.textContent = `Time: ${time}`;
+//     countdownInterval = setInterval(() => {
+//         time--;
+//         display.textContent =`Time: ${time}`
 
-        if(time <= 0){
-            clearInterval(countdownInterval)
-            alert('⏰ Time is up!')
-        }
-    },1000)
+//         if(time <= 0){
+//             clearInterval(countdownInterval)
+//             alert('⏰ Time is up!')
+//         }
+//     },1000)
+// })
+
+
+// CUSTOM MODAL POPUP
+const modal = document.getElementById('myModal')
+const openBtn = document.getElementById('openModalBtn')
+const closeBtn = document.getElementById('closeBtn')
+
+openBtn.addEventListener('click', () => {
+    modal.style.display = 'block'
 })
+
+closeBtn.addEventListener('click', () => {
+    modal.style.display = "none"
+})
+window.addEventListener('click', (e) => {
+    if(e.target === modal){
+        modal.style.display = 'none'
+    }
+})
+window.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape'){
+        modal.style.display = 'none'
+    }
+})
+// END OF CUSTOM MODAL POPUP
