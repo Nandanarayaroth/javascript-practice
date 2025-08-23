@@ -531,12 +531,16 @@ let temp = []
 let flag = false
 for(let i=0; i<size; i++){
     val[i] = Number(prompt(`enter ${i}th item`))
-    for(let j=0; j<val[i]; j++){
+}
+for(let i=0; i<size; i++){
+    temp[i] = val[i]
+    for(let j=i+1; j<size; j++){
         if(temp[j] === val[i]){
-            flag =  true   
+            flag =  true 
+            arr[j] = temp[j]
         }
     }
-    
 }
 console.log(val)
+console.log(arr)
 

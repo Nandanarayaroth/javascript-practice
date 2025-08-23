@@ -2298,35 +2298,227 @@
 
 
 // DRAG & DROP TO-DO
-const tasks = document.querySelectorAll('.task')
-const columns = document.querySelectorAll('.column')
+// const tasks = document.querySelectorAll('.task')
+// const columns = document.querySelectorAll('.column')
 
-let draggedTask = null
+// let draggedTask = null
 
-tasks.forEach(task => {
-    task.addEventListener('dragstart', (e) => {
-        draggedTask = task
-        e.dataTransfer.effectAllowed = "move"
-        task.style.opacity = '0.5'
-        // setTimeout(() => task.style.display = 'none', 0)
-    })
-    task.addEventListener('dragend', () => {
-        draggedTask.style.opacity = '1'
-        draggedTask = null
-        // setTimeout(() => {
-        //     draggedTask.style.display = 'block'
-        //     draggedTask = null
-        // }, 0)
-    })
-})
+// tasks.forEach(task => {
+//     task.addEventListener('dragstart', (e) => {
+//         draggedTask = task
+//         e.dataTransfer.effectAllowed = "move"
+//         task.style.opacity = '0.5'
+//         // setTimeout(() => task.style.display = 'none', 0)
+//     })
+//     task.addEventListener('dragend', () => {
+//         draggedTask.style.opacity = '1'
+//         draggedTask = null
+//         // setTimeout(() => {
+//         //     draggedTask.style.display = 'block'
+//         //     draggedTask = null
+//         // }, 0)
+//     })
+// })
 
-columns.forEach(column => {
-    column.addEventListener('dragover', e => e.preventDefault())
-    column.addEventListener('drop', e => {
-        e.preventDefault()
-        if(draggedTask){
-            column.appendChild(draggedTask)
-        }
-    })
-})
+// columns.forEach(column => {
+//     column.addEventListener('dragover', e => e.preventDefault())
+//     column.addEventListener('drop', e => {
+//         e.preventDefault()
+//         if(draggedTask){
+//             column.appendChild(draggedTask)
+//         }
+//     })
+// })
 // END OF TO-DO
+
+// const API_KEY = 'YOUR_OPENWEATHERMAP_API_KEY'
+// const btn = document.getElementById('getWeatherBtn')
+// const weatherInfo = document.getElementById('weatherInfo')
+// const locationEl = document.getElementById('location')
+// const tempEl = document.getElementById('temp')
+// const humidityEl = document.getElementById('humidity')
+// const description = document.getElementById('description')
+// const iconEl = document.getElementById('icon')
+
+// btn.addEventListener('click', () => {
+//     if(navigator.geolocation){
+//         navigator.geolocation.getCurrentPosition(position => {
+//             const lat = position.coords.latitude
+//             const lon = position.coords.longitude
+
+//             fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`)
+//             .then(response => response.json())
+//             .then(data => {
+//                 weatherInfo.classList.remove('hidden')
+//                 locationEl.textContent = data.name + ',' +data.sys.country
+//                 tempEl.textContent = data.main.temp.toFixed(1)
+//                 humidityEl.textContent = data.main.humidity
+//                 description.textContent = data.weather[0].description
+//                 iconEl.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+
+//             })
+//             .catch(err => alert('Error frtching weather: '+ err))
+//         }, () => alert('Geolocation permission denied.'))
+//     }
+//     else{
+//         alert('Geolocation is not supported by your browser')
+//     }
+// })
+
+// const form = document.getElementById('signupForm')
+// const nameInput = document.getElementById('name')
+// const emailInput = document.getElementById('email')
+// const passwordInput = document.getElementById('password')
+
+// function showError(input, message){
+//     const errorEl = input.nextElementSibling
+//     errorEl.textContent = message
+//     input.classList.add('invalid')
+// }
+
+// function clearInput(input) {
+//     const errorEl = input.nextElementSibling
+//     errorEl.textContent = ''
+//     input.classList.remove('invalid')
+// }
+
+// nameInput.addEventListener('input', () => {
+//     if(nameInput.value.trim() === ''){
+//         showError(nameInput, 'Name is required')
+//     }
+//     else{
+//         clearError(nameInput)
+//     }
+// })
+
+// emailInput.addEventListener('input', () => {
+//     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//     if(!regex.test(emailInput.value.trim())){
+//         showError(emailInput, 'Email is not valid')
+//     }
+//     else{
+//         clearError(emailInput)
+//     }
+// })
+
+// passwordInput.addEventListener('input', () => {
+//     if(passwordInput.value.length<6){
+//         showError(passwordInput, 'Password must be at least 6 characters')
+//     }
+//     else{
+//         clearError(passwordInput)
+//     }
+// })
+// form.addEventListener('submit', (e) => {
+//     e.preventDefault()
+//     if(
+//         nameInput.value.trim() !== '' &&
+//         /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim()) &&
+//         passwordInput.value.length >= 6
+//     ){
+//         alert('Form submitted successfully')
+//         form.reset()
+//     }
+//     else{
+//         alert('Please fix errors before submitting')
+//     }
+// })
+
+
+
+// function show() {
+//     alert("Hello!")
+// }
+
+
+// document.getElementById('btn').addEventListener("click", function(){
+//     let username = document.getElementById("username").value
+//     let password = document.getElementById("password").value
+
+//     console.log(username)
+//     console.log(password)
+
+//     if(username === '' || password === ''){
+//         alert('Please fill username and password')
+//     }
+//     else{
+//         alert('submitted sucessfully')
+//     }
+
+// })
+
+
+// document.getElementById('btn').addEventListener("click", function(){
+//     let text = document.getElementById("text")
+//     let btn = document.getElementById("btn")
+//     document.body.classList.toggle('bg')
+
+//     text.textContent = "Dark Mode"
+//     text.classList.toggle("ttext")
+//     btn.classList.toggle("bbtn")
+// })
+
+// let incre = 0
+// // let decre
+// document.getElementById("btn-in").addEventListener("click", function(){
+//     let count = document.getElementById("count")
+//     console.log(count)
+//     incre = incre + 1
+//     count.textContent = incre
+// })
+
+// document.getElementById("btn-de").addEventListener("click", function() {
+//     let count = document.getElementById("count")
+//    incre = incre - 1
+//     count.textContent = incre
+//     console.log(decre)
+// })
+// //     
+
+const taskInput = document.getElementById('taskInput')
+const addTaskBtn = document.getElementById('addtask')
+const taskList = document.getElementById('taskList')
+
+let tasks = JSON.parse(localStorage.getItem('tasks')) || []
+renderTasks()
+
+addTaskBtn.addEventListener('click', () => {
+    const taskText = taskInput.value.trim()
+    if(taskText === '') return
+
+    const newTask = { text: taskText, completed: false}
+    tasks.push(newTask)
+    saveTasks()
+    renderTasks()
+    taskInput.value = ''
+})
+
+function renderTasks() {
+    taskList.innerHTML = '';
+    tasks.forEach((task, index) => {
+        const li = document.createElement('li')
+        li.textContent = task.text
+        if(task.completed) li.classList.add('completed')
+
+            li.addEventListener('click', () => {
+                tasks[index].completed = !tasks[index].completed
+                saveTasks()
+                renderTasks()
+            })
+            
+            const delBtn = document.createElement('button')
+            delBtn.textContent = 'X'
+            delBtn.addEventListener('click', (e) => {
+                e.stopPropagation()
+                tasks.splice(index, 1)
+                saveTasks()
+                renderTasks()
+            })
+            li.appendChild(delBtn)
+            taskList.appendChild(li)
+    })
+}
+
+function saveTasks() {
+    localStorage.setItem('task', JSON.stringify(tasks))
+}
