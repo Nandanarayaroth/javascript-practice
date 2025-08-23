@@ -2473,52 +2473,203 @@
 //     count.textContent = incre
 //     console.log(decre)
 // })
-// //     
+// // //     
 
-const taskInput = document.getElementById('taskInput')
-const addTaskBtn = document.getElementById('addtask')
-const taskList = document.getElementById('taskList')
+// const taskInput = document.getElementById('taskInput')
+// const addTaskBtn = document.getElementById('addtask')
+// const taskList = document.getElementById('taskList')
 
-let tasks = JSON.parse(localStorage.getItem('tasks')) || []
-renderTasks()
+// let tasks = JSON.parse(localStorage.getItem('tasks')) || []
+// renderTasks()
 
-addTaskBtn.addEventListener('click', () => {
-    const taskText = taskInput.value.trim()
-    if(taskText === '') return
+// addTaskBtn.addEventListener('click', () => {
+//     const taskText = taskInput.value.trim()
+//     if(taskText === '') return
 
-    const newTask = { text: taskText, completed: false}
-    tasks.push(newTask)
-    saveTasks()
-    renderTasks()
-    taskInput.value = ''
-})
+//     const newTask = { text: taskText, completed: false}
+//     tasks.push(newTask)
+//     saveTasks()
+//     renderTasks()
+//     taskInput.value = ''
+// })
 
-function renderTasks() {
-    taskList.innerHTML = '';
-    tasks.forEach((task, index) => {
-        const li = document.createElement('li')
-        li.textContent = task.text
-        if(task.completed) li.classList.add('completed')
+// function renderTasks() {
+//     taskList.innerHTML = '';
+//     tasks.forEach((task, index) => {
+//         const li = document.createElement('li')
+//         li.textContent = task.text
+//         if(task.completed) li.classList.add('completed')
 
-            li.addEventListener('click', () => {
-                tasks[index].completed = !tasks[index].completed
-                saveTasks()
-                renderTasks()
-            })
+//             li.addEventListener('click', () => {
+//                 tasks[index].completed = !tasks[index].completed
+//                 saveTasks()
+//                 renderTasks()
+//             })
             
-            const delBtn = document.createElement('button')
-            delBtn.textContent = 'X'
-            delBtn.addEventListener('click', (e) => {
-                e.stopPropagation()
-                tasks.splice(index, 1)
-                saveTasks()
-                renderTasks()
-            })
-            li.appendChild(delBtn)
-            taskList.appendChild(li)
-    })
+//             const delBtn = document.createElement('button')
+//             delBtn.textContent = 'X'
+//             delBtn.addEventListener('click', (e) => {
+//                 e.stopPropagation()
+//                 tasks.splice(index, 1)
+//                 saveTasks()
+//                 renderTasks()
+//             })
+//             li.appendChild(delBtn)
+//             taskList.appendChild(li)
+//     })
+// }
+
+// function saveTasks() {
+//     localStorage.setItem('task', JSON.stringify(tasks))
+// }
+
+// const slides = document.getElementById('slides')
+// const nextBtn = document.getElementById('next')
+// const prevBtn = document.getElementById('prev')
+// const totalSlides = slides.children.length
+
+// let index = 0
+
+// nextBtn.addEventListener('click', () => {
+//     index = (index + 1) % totalSlides
+//     updateSlide()
+// })
+
+// prevBtn.addEventListener('click', () => {
+//     index = (index - 1 + totalSlides) % totalSlides
+//     updateSlide()
+// })
+
+// function updateSlide(){
+//     slides.style.transform = `translateX(${-index * 600}px)`
+// }
+
+// const quizData = [
+//     {
+//         question: "What is the capital of France?",
+//         options: ["Paris", "London", "Berlin", "Madrid"],
+//         answer: "Paris"
+//     },
+//     {
+//         question: "Which language runs in a web browser?",
+//         options: ["java", "c", "Python", "JavaScript"],
+//         answer: "Javascript"
+//     },
+//     {
+//         question: "Who wrote Hamlet ?",
+//         options: ["Charles Dickens", "Willian Shakespeare", "Mark Twain", "J.K Rowling"],
+//         answer: "Willian Shakespeare"
+//     },
+//     {
+//         question: "What is 5 + 7?",
+//         options: ["10", "12", "13", "11"],
+//         answer: '12'
+//     }
+// ]
+
+// const questionEl = document.getElementById("question")
+// const optionsEl = document.getElementById("options")
+// const quizContainer = document.getElementById("quiz")
+
+// let currentQuiz = 0
+// let score = 0
+
+// function loadQuiz() {
+//     const currentQuizData = quizData[currentQuiz]
+//     questionEl.textContent = currentQuizData.question
+//     optionsEl.innerHTML = ''
+    
+//     currentQuizData.options.forEach(option => {
+//         const button = document.createElement("button")
+//         button.textContent = option
+//         button.addEventListener("click", () => selectOption(option))
+//         optionsEl.appendChild(button)
+//     })
+// }
+
+// function selectOption(selected) {
+//     if(selected === quizData[currentQuiz].answer){
+//         score++
+//     }
+//     currentQuiz++;
+//     if(currentQuiz < quizData.length){
+//         loadQuiz()
+//     }
+//     else{
+//         showScore()
+//     }
+// }
+
+// function showScore() {
+//     quizContainer.innerHTML = `
+//         <div class = "score">You scored ${score} / ${quizData.length}</div>
+//         <button id="restart" onclick="restartQuiz()">Reset Quiz</button>
+//     `;
+// }
+
+// function restartQuiz() {
+//     currentQuiz = 0;
+//     score = 0
+//     loadQuiz()
+//     quizContainer.innerHTML = `
+//         <div class="question" id="question"></div>
+//         <div class="options" id="options"></div>
+//     `;
+//     loadQuiz()
+// }
+// loadQuiz()
+
+// const tracker = document.getElementById('tracker')
+
+// document.addEventListener('mousemove', (e) => {
+//     const x = e.clientX
+//     const y = e.clientY
+//     tracker.textContent = `X: ${x}, Y: ${y}`
+// })
+
+
+// const display = document.getElementById('display')
+// const buttons = document.querySelectorAll('.buttons button')
+
+// let currentInput =''
+
+// buttons.forEach(button => {
+//     button.addEventListener('click', () => {
+//         const value = button.textContent
+
+//         if(value === 'C'){
+//             currentInput = ''
+//             display.value = ''
+//         }
+//         else if(value === '=') {
+//             try{
+//                 display.value = eval(currentInput)
+//                 currentInput = display.value
+//             }catch{
+//                 display.value = 'Error'
+//                 currentInput = ''
+//             }
+//         }else{
+//             currentInput += value
+//             display.value = currentInput
+//         }
+//     })
+// })
+
+const passwordInput = document.getElementById('password')
+const generateBtn = document.getElementById('generate')
+
+function generatePassword(length = 12) {
+    const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+{}[]<>?"
+    let password =""
+    for(let i=0; i< length; i++){
+        const randomIndex = Math.floor(Math.random() * chars.length)
+        password += chars[randomIndex]
+    }
+    return password
 }
 
-function saveTasks() {
-    localStorage.setItem('task', JSON.stringify(tasks))
-}
+generateBtn.addEventListener('click', () => {
+    const newPassword = generatePassword(12)
+    passwordInput.value = newPassword
+})
