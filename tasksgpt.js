@@ -2656,20 +2656,31 @@
 //     })
 // })
 
-const passwordInput = document.getElementById('password')
-const generateBtn = document.getElementById('generate')
+// const passwordInput = document.getElementById('password')
+// const generateBtn = document.getElementById('generate')
 
-function generatePassword(length = 12) {
-    const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+{}[]<>?"
-    let password =""
-    for(let i=0; i< length; i++){
-        const randomIndex = Math.floor(Math.random() * chars.length)
-        password += chars[randomIndex]
-    }
-    return password
-}
+// function generatePassword(length = 12) {
+//     const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+{}[]<>?"
+//     let password =""
+//     for(let i=0; i< length; i++){
+//         const randomIndex = Math.floor(Math.random() * chars.length)
+//         password += chars[randomIndex]
+//     }
+//     return password
+// }
 
-generateBtn.addEventListener('click', () => {
-    const newPassword = generatePassword(12)
-    passwordInput.value = newPassword
-})
+// generateBtn.addEventListener('click', () => {
+//     const newPassword = generatePassword(12)
+//     passwordInput.value = newPassword
+// })
+
+// const headers = document.querySelectorAll('.accordion-header')
+
+// headers.forEach(header => {
+//     header.addEventListener('click', () => {
+//         header.classList.toggle('active')
+//         headers.forEach(h => {
+//             if(h !== header) h.classList.remove('active')
+//         })
+//     })
+// })
