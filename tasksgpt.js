@@ -3,8 +3,6 @@
 // <------------- odd or even----------->
 // document.getElementById("btn").addEventListener("click", function(){
 //     let num = Number(document.getElementById("num").value)
-
-
 //     let final = document.getElementById("finall")
 //     if(num % 2 === 0){
 //         final.textContent = "even"
@@ -2684,3 +2682,66 @@
 //         })
 //     })
 // })
+
+class TaskManager{
+    constructor() {
+        this.tasks = JSON.parse(localStorage.getItem('tasks')) || []
+        this.taskList = document.getElementById('task-list')
+        this.taskInput = document.getElementById('task-input')
+        this.addBtn = document.getElementById('add-task')
+
+        this.addBtn.addEventListener('click', ()=> this.addTask())
+        this.renderTasks()
+    }
+    saveTasks(){
+        localStorage.setItem('tasks', JSON.stringify(this.tasks))
+    }
+    addTask(){
+        const taskText = this.taskInput.value.trim()
+        if(!taskText) return
+
+        const task = {
+            id: Date.now(),
+            text: taskText,
+            completed: false
+        };
+        this.tasks.push(task)
+        this.taskInput.value = ''
+        this.saveTasks()
+        this.renderTasks()
+    }
+    toggleTask(id) {
+        this.tasks = this.tasks.map(task =>
+            task.id === id ? {...task, completed: !task.completed} : task
+        )
+        this.saveTasks()
+        this.renderTasks()
+    }
+    deleteTasks(id) {
+        this.tasks = this.tasks.filter(task => task.id !== id)
+        this.saveTasks()
+        this.renderTasks()
+    }
+    renderTasks(){
+        this.taskList.innerHTML = '';
+        this.tasks.forEach(task => {
+            const li = document.createElement('li')
+            li.textContent = task.text
+            li.style.textDecoration = task.completed ? 'Line-thorugh' : 'none'
+            li.addEventListener('click', () => this.toggleTask(task.id))
+
+            const deleteBtn = document.createElement('button')
+            deleteBtn.textContent = 'X'
+            deleteBtn.addEventListener('click', (e) => {
+                e.stopPropagation()
+                this.deleteTasks(task.id)
+            })
+            li.appendChild(deleteBtn)
+            this.taskList.appendChild(li)
+        })
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    new TaskManager()
+})
