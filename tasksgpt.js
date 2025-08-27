@@ -2683,65 +2683,282 @@
 //     })
 // })
 
-class TaskManager{
-    constructor() {
-        this.tasks = JSON.parse(localStorage.getItem('tasks')) || []
-        this.taskList = document.getElementById('task-list')
-        this.taskInput = document.getElementById('task-input')
-        this.addBtn = document.getElementById('add-task')
+// class TaskManager{
+//     constructor() {
+//         this.tasks = JSON.parse(localStorage.getItem('tasks')) || []
+//         this.taskList = document.getElementById('task-list')
+//         this.taskInput = document.getElementById('task-input')
+//         this.addBtn = document.getElementById('add-task')
 
-        this.addBtn.addEventListener('click', ()=> this.addTask())
-        this.renderTasks()
-    }
-    saveTasks(){
-        localStorage.setItem('tasks', JSON.stringify(this.tasks))
-    }
-    addTask(){
-        const taskText = this.taskInput.value.trim()
-        if(!taskText) return
+//         this.addBtn.addEventListener('click', ()=> this.addTask())
+//         this.renderTasks()
+//     }
+//     saveTasks(){
+//         localStorage.setItem('tasks', JSON.stringify(this.tasks))
+//     }
+//     addTask(){
+//         const taskText = this.taskInput.value.trim()
+//         if(!taskText) return
 
-        const task = {
-            id: Date.now(),
-            text: taskText,
-            completed: false
-        };
-        this.tasks.push(task)
-        this.taskInput.value = ''
-        this.saveTasks()
-        this.renderTasks()
-    }
-    toggleTask(id) {
-        this.tasks = this.tasks.map(task =>
-            task.id === id ? {...task, completed: !task.completed} : task
-        )
-        this.saveTasks()
-        this.renderTasks()
-    }
-    deleteTasks(id) {
-        this.tasks = this.tasks.filter(task => task.id !== id)
-        this.saveTasks()
-        this.renderTasks()
-    }
-    renderTasks(){
-        this.taskList.innerHTML = '';
-        this.tasks.forEach(task => {
-            const li = document.createElement('li')
-            li.textContent = task.text
-            li.style.textDecoration = task.completed ? 'Line-thorugh' : 'none'
-            li.addEventListener('click', () => this.toggleTask(task.id))
+//         const task = {
+//             id: Date.now(),
+//             text: taskText,
+//             completed: false
+//         };
+//         this.tasks.push(task)
+//         this.taskInput.value = ''
+//         this.saveTasks()
+//         this.renderTasks()
+//     }
+//     toggleTask(id) {
+//         this.tasks = this.tasks.map(task =>
+//             task.id === id ? {...task, completed: !task.completed} : task
+//         )
+//         this.saveTasks()
+//         this.renderTasks()
+//     }
+//     deleteTasks(id) {
+//         this.tasks = this.tasks.filter(task => task.id !== id)
+//         this.saveTasks()
+//         this.renderTasks()
+//     }
+//     renderTasks(){
+//         this.taskList.innerHTML = '';
+//         this.tasks.forEach(task => {
+//             const li = document.createElement('li')
+//             li.textContent = task.text
+//             li.style.textDecoration = task.completed ? 'Line-thorugh' : 'none'
+//             li.addEventListener('click', () => this.toggleTask(task.id))
 
-            const deleteBtn = document.createElement('button')
-            deleteBtn.textContent = 'X'
-            deleteBtn.addEventListener('click', (e) => {
-                e.stopPropagation()
-                this.deleteTasks(task.id)
-            })
-            li.appendChild(deleteBtn)
-            this.taskList.appendChild(li)
+//             const deleteBtn = document.createElement('button')
+//             deleteBtn.textContent = 'X'
+//             deleteBtn.addEventListener('click', (e) => {
+//                 e.stopPropagation()
+//                 this.deleteTasks(task.id)
+//             })
+//             li.appendChild(deleteBtn)
+//             this.taskList.appendChild(li)
+//         })
+//     }
+// }
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     new TaskManager()
+// })
+
+// class WeatherApp{
+//     constructor(apiKey){
+//         this.apiKey = apiKey
+//         this.cityInput = document.getElementById('city-input')
+//         this.searchBtn = document.getElementById('search-weather')
+//         this.resultDiv = document.getElementById('weather-result')
+
+//         this.searchBtn.addEventListener('click', () => this.getWeather())
+//     }
+//     async getWeather() {
+//         const city = this.cityInput.value.trim()
+//         if(!city) {
+//             this.resultDiv.textContent = "Please enter a city name!"
+//             return
+//         }
+//         this.resultDiv.textContent = "Loading..."
+//         try{
+//             const response = await fetch(
+//                 `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${this.apiKey}&units=metric`
+//             )
+//             if (!response.ok) throw new Error("City not found!")
+//             const data = await response.json()
+//             this.displayWeather(data)
+
+//         }catch(error) {
+//             this.resultDiv.textContent = error.message
+//         }
+//     }
+//     displayWeather(data){
+//         const { name, main, weather} = data
+//         this.resultDiv.innerHTML = `
+//             <h3>${name}</h3>
+//             <p>Temperature: ${main.temp}°C </p>
+//             <p>Condition: ${weather[0].description} </p>
+//         `;
+//     }
+// }
+// document.addEventListener('DOMContentLoaded', () => {
+//     const app = new WeatherApp('YOUR_API_KEY_HERE')
+// })
+
+// class QuizApp{
+//     constructor(question){
+//         this.questions = question
+//         this.cureentIndex = 0
+//         this.score = 0
+
+//         this.container = document.getElementById("quiz-container")
+//         this.renderQuestion()
+//     }
+//     renderQuestion() {
+//         if(this.cureentIndex >= this.questions.length){
+//             this.showResult()
+//             return
+//         }
+//         const q = this.questions[this.cureentIndex]
+//         this.container.innerHTML = `
+//             <h2>${q.question}</h2>
+//             <ul>
+//                 ${q.options
+//                     .map(
+//                         (opt, index) =>
+//                             `<li><button data-index="${index}">${opt}</button></li>`
+//                     )
+//                     .join("")
+//                 }
+//             </ul>
+//         `;
+//         const buttons = this.container.querySelectorAll("button")
+//         buttons.forEach((btn) => 
+//             btn.addEventListener("click", (e) => this.checkAnswer(e))
+//         )
+//     }
+//     checkAnswer(event) {
+//         const selectedIndex = parseInt(event.target.dataset.index)
+//         const correctIndex = this.questions[this.cureentIndex].answer
+//         if(selectedIndex === correctIndex){
+//             this.score++
+//         }
+//         this.cureentIndex++
+//         this.renderQuestion()
+//     }
+//     showResult() {
+//         this.container.innerHTML = `
+//             <h2>Quiz Completed</h2>
+//             <p>Your score: ${this.score} / ${this.questions.length}</p>
+//             <button id="restart">Restart Quiz</button>
+//         `;
+//         document
+//             .getElementById("restart")
+//             .addEventListener("click", () => this.restart())
+//     }
+//     restart(){
+//         this.cureentIndex = 0
+//         this.score = 0
+//         this.renderQuestion()
+//     }
+// }
+
+// const questions = [
+//     {
+//         question: "What is 2 + 2 ?",
+//         options: ["3", "4", "5", "6"],
+//         answer: 1
+//     },
+//     {
+//         question: "Which is a JS framework?",
+//         options: ["React", "HTML", "CSS", "Python"],
+//         answer: 0
+//     },
+//     {
+//         question: "which lanuage is used for styling web pages?",
+//         options: ["HTML", "Python", "CSS", "Java"],
+//         answer: 2
+//     },
+//     {
+//         question: "Which company developed Javascript?",
+//         options: ["Microsoft", "Netscape", "Google", "Apple"],
+//         answer: 1
+//     },
+//     {
+//         question: "What does DOM stands for?",
+//         options: [
+//             "Document Object Model",
+//             "Data Object Model",
+//             "Desktop Object Modal",
+//             "Digital Object Management"
+//         ],
+//         answer: 0
+//     },
+//     {
+//         question: "What is the output of 'typeof null' in javaScript?",
+//         options: ["Object", "null", "undefined", "number"],
+//         answer: 0
+//     },
+//     {
+//         question: "Which HTML tag is used to include JavaScript?",
+//         options: ["<js>", "<script>", "<javascript>", "<code>"],
+//         answer: 1
+//     },
+//     {
+//         question: "Which operator is used for strict equality in JavaScript?",
+//         options: ["=","==","===","!="],
+//         answer: 2
+//     },
+//     {
+//         question: "Which method converts JSON to a JavaScript object?",
+//         options: ["JSON.parse()", "JSON.stringfy()", "JSON.Object()", "JSON.convert()"],
+//         answer: 0
+//     },
+//     {
+//         question: "What is the correct way to write a javaScript arrow function?",
+//         options: [
+//             "function() => {}",
+//             "() => {}",
+//             "=> function() {}",
+//             "function => () {}"
+//         ],
+//         answer: 1
+//     }
+// ];
+// document.addEventListener("DOMContentLoaded", () => {
+//     new QuizApp(questions)
+// })
+
+document.addEventListener("DOMContentLoaded", () => {
+    const input = document.querySelector("#taskInput")
+    const addBtn = document.querySelector('#addTask')
+    const taskList = document.querySelector('#taskList')
+
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || []
+    renderTasks()
+
+    addBtn.addEventListener("click", addTask)
+
+    function addTask() {
+        const task = input.value.trim()
+        if(task === "") return
+        tasks.push({ text : task, completed: false})
+        input.value = ""
+        saveTasks()
+        renderTasks()
+    }
+    function renderTasks() {
+        taskList.innerHTML = ""
+        tasks.forEach((task, index) => {
+            const li = document.createElement("li")
+            li.innerHTML = `
+                <span style="text-decoration: ${task.completed ? 'Line-through' : 'none'}">
+                    ${task.text}
+                </span>
+                <button onclick = "toggleComplete(${index})">✔</</button>
+                <button onClick = "deleteTask(${index})">X</button>
+            `;
+            taskList.appendChild(li)
         })
     }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    new TaskManager()
+    window.toggleComplete = function (index) {
+        tasks[index].completed = !tasks[index].completed
+        // tasks.splice(index, 1)
+        saveTasks()
+        renderTasks()
+    }
+    window.deleteTask = function(index) {
+        tasks.splice(index, 1)
+        saveTasks()
+        renderTasks()
+    }
+    function saveTasks(){
+        localStorage.setItem("tasks", JSON.stringify(tasks))
+    }
 })
+
+
+
+//                                   
