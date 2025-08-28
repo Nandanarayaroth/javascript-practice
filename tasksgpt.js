@@ -2911,54 +2911,91 @@
 //     new QuizApp(questions)
 // })
 
-document.addEventListener("DOMContentLoaded", () => {
-    const input = document.querySelector("#taskInput")
-    const addBtn = document.querySelector('#addTask')
-    const taskList = document.querySelector('#taskList')
+// document.addEventListener("DOMContentLoaded", () => {
+//     const input = document.querySelector("#taskInput")
+//     const addBtn = document.querySelector('#addTask')
+//     const taskList = document.querySelector('#taskList')
 
-    let tasks = JSON.parse(localStorage.getItem("tasks")) || []
-    renderTasks()
+//     let tasks = JSON.parse(localStorage.getItem("tasks")) || []
+//     renderTasks()
 
-    addBtn.addEventListener("click", addTask)
+//     addBtn.addEventListener("click", addTask)
 
-    function addTask() {
-        const task = input.value.trim()
-        if(task === "") return
-        tasks.push({ text : task, completed: false})
-        input.value = ""
-        saveTasks()
-        renderTasks()
+//     function addTask() {
+//         const task = input.value.trim()
+//         if(task === "") return
+//         tasks.push({ text : task, completed: false})
+//         input.value = ""
+//         saveTasks()
+//         renderTasks()
+//     }
+//     function renderTasks() {
+//         taskList.innerHTML = ""
+//         tasks.forEach((task, index) => {
+//             const li = document.createElement("li")
+//             li.innerHTML = `
+//                 <span style="text-decoration: ${task.completed ? 'Line-through' : 'none'}">
+//                     ${task.text}
+//                 </span>
+//                 <button onclick = "toggleComplete(${index})">✔</</button>
+//                 <button onClick = "deleteTask(${index})">X</button>
+//             `;
+//             taskList.appendChild(li)
+//         })
+//     }
+//     window.toggleComplete = function (index) {
+//         tasks[index].completed = !tasks[index].completed
+//         // tasks.splice(index, 1)
+//         saveTasks()
+//         renderTasks()
+//     }
+//     window.deleteTask = function(index) {
+//         tasks.splice(index, 1)
+//         saveTasks()
+//         renderTasks()
+//     }
+//     function saveTasks(){
+//         localStorage.setItem("tasks", JSON.stringify(tasks))
+//     }
+// })
+
+// const apiKey ="YOUR_API_KEY";
+// document.querySelector("#getWeather").addEventListener("click", () => {
+//     const city = document.querySelector("#city").value
+//     if(!city) return alert("Please enter a city name")
+
+//     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
+//         .then(response => response.json())
+//         .then(data => {
+//             if(data.cod !==200){
+//                 document.querySelector("#result").innerText = "City not found"
+//                 return
+//             }
+//             document.querySelector('#result').innerHTML = `
+//                 <h3>${data.name}</h3>
+//                 <p>Temp: ${data.main.temp}°C</p>
+//                 <p>${data.weather[0].description}</p>
+//             `;
+//         })
+//         .catch(err => console.err(err))
+// })
+
+class BankAccount {
+    constructor(accountNumber, owner, balance = 0){
+        this.accountNumber = accountNumber
+        this.owner = owner
+        this.balance = balance
     }
-    function renderTasks() {
-        taskList.innerHTML = ""
-        tasks.forEach((task, index) => {
-            const li = document.createElement("li")
-            li.innerHTML = `
-                <span style="text-decoration: ${task.completed ? 'Line-through' : 'none'}">
-                    ${task.text}
-                </span>
-                <button onclick = "toggleComplete(${index})">✔</</button>
-                <button onClick = "deleteTask(${index})">X</button>
-            `;
-            taskList.appendChild(li)
-        })
+    deposit(amount){
+        if(amount <= 0) return "Invalid amount";
+        this.balance += amount;
+        return `Deposited $${amount}.New Balance: $${this.balance}`
     }
-    window.toggleComplete = function (index) {
-        tasks[index].completed = !tasks[index].completed
-        // tasks.splice(index, 1)
-        saveTasks()
-        renderTasks()
+    withdraw(amount) {
+        if(amount > this.balance) return "Insufficient funds";
+        this.balance -= amount
+        return `Withdraw $${amount}.New Balance: $${this.balance}`
     }
-    window.deleteTask = function(index) {
-        tasks.splice(index, 1)
-        saveTasks()
-        renderTasks()
-    }
-    function saveTasks(){
-        localStorage.setItem("tasks", JSON.stringify(tasks))
-    }
-})
+}
 
-
-
-//                                   
+// 
