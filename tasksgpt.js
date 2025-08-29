@@ -2980,22 +2980,89 @@
 //         .catch(err => console.err(err))
 // })
 
-class BankAccount {
-    constructor(accountNumber, owner, balance = 0){
-        this.accountNumber = accountNumber
-        this.owner = owner
-        this.balance = balance
-    }
-    deposit(amount){
-        if(amount <= 0) return "Invalid amount";
-        this.balance += amount;
-        return `Deposited $${amount}.New Balance: $${this.balance}`
-    }
-    withdraw(amount) {
-        if(amount > this.balance) return "Insufficient funds";
-        this.balance -= amount
-        return `Withdraw $${amount}.New Balance: $${this.balance}`
-    }
+// class BankAccount {
+//     constructor(accountNumber, owner, balance = 0){
+//         this.accountNumber = accountNumber
+//         this.owner = owner
+//         this.balance = balance
+//     }
+//     deposit(amount){
+//         if(amount <= 0) return "Invalid amount";
+//         this.balance += amount;
+//         return `Deposited $${amount}.New Balance: $${this.balance}`
+//     }
+//     withdraw(amount) {
+//         if(amount > this.balance) return "Insufficient funds";
+//         this.balance -= amount
+//         return `Withdraw $${amount}.New Balance: $${this.balance}`
+//     }
+// }
+
+const taskInput = document.getElementById('taskInput')
+const addTaskBtn = document.getElementById('addTaskBtn')
+const taskList = document.getElementById('taskList')
+const themeToggle = document.getElementById('themeToggle')
+const filterButtons = document.querySelectorAll('.filter')
+
+let tasks = []
+let filter = 'all'
+let darkMode = false
+
+addTaskBtn.addEventListener('click', addTask)
+themeToggle.addEventListener('click', toggleTheme)
+filterButtons.forEach(btn => btn.addEventListener('click', changeFilter))
+
+function addTask(){
+    const text = taskInput.value.trim()
+    if(text === '') return
+
+    tasks.push({id: Date.now(), text, completed: false})
+    taskInput.value = ''
+    renderTasks()
+}
+function toggleTask(id) {
+    tasks = tasks.map(task => 
+        task.id === id ? {...task, completed: !task.completed } : task
+    )
+    renderTasks()
+}
+function changeFilter(e) {
+    filter = e.target.dataset.filter
+    renderTasks()
+}
+function deleteTask(id) {
+    tasks = tasks.filter(t => t.id !== id)
+    renderTasks()
+}
+function renderTasks(){
+    taskList.innerHTML = ``
+
+    const filteredTasks = task.filter(task => {
+        if(filter === 'completed') return task.completed
+        if(filter === 'pending') return !task.completed
+        return true
+    })
+    filteredTasks.forEach(task => {
+        const li = document.createElement('li')
+        const span = document.createElement('span')
+        span.textContent = task.text
+        if(task.completed) span.classList.add('completed')
+        span.style.cursor = 'pointer'
+        span.addEventListener('click', () => toggleTask(task.id))
+
+        const deleteBtn = document.createElement('button')
+        deleteBtn.textContent = 'X'
+        deleteBtn.addEventListener('click', () => deleteTask(task.id))
+
+        li.appendChild(span)
+        li.appendChild(deleteBtn)
+        taskList.appendChild(li)
+    })
+}
+function toggleTheme() {
+    darkMode = !darkMode
+    document.body.classList.toggle('dark', darkMode)
+    themeToggle.textContent = `Switch to ${darkMode ? 'light' : 'Dark'} Theme`
 }
 
 // 

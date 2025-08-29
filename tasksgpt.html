@@ -842,10 +842,20 @@
                 <ul id="taskList"></ul>
             </div> -->
 
-            <input id="city" placeholder="Enter city"/>
+            <!-- <input id="city" placeholder="Enter city"/>
             <button>Get Weather</button>
-            <div id="result"></div>
+            <div id="result"></div> -->
 
+            <h4>To-Do List</h4>
+            <input type="text" id="taskInput" placeholder="Enter task"/>
+            <button id="addTaskBtn">Add Task</button>
+            <div>
+                <button class="filter" data-filter="all">All</button>
+                <button class="filter" data-filter="completed">Completed</button>
+                <button class="filter" data-filter="pending">Pending</button>
+            </div>
+            <ul id="taskList"></ul>
+            <button id="themeToggle">Switch to Dark</button>
 
         <script src="tasksgpt.js"></script>
     </body>
