@@ -2998,71 +2998,84 @@
 //     }
 // }
 
-const taskInput = document.getElementById('taskInput')
-const addTaskBtn = document.getElementById('addTaskBtn')
-const taskList = document.getElementById('taskList')
-const themeToggle = document.getElementById('themeToggle')
-const filterButtons = document.querySelectorAll('.filter')
+// const taskInput = document.getElementById('taskInput')
+// const addTaskBtn = document.getElementById('addTaskBtn')
+// const taskList = document.getElementById('taskList')
+// const themeToggle = document.getElementById('themeToggle')
+// const filterButtons = document.querySelectorAll('.filter')
 
-let tasks = []
-let filter = 'all'
-let darkMode = false
+// let tasks = []
+// let filter = 'all'
+// let darkMode = false
 
-addTaskBtn.addEventListener('click', addTask)
-themeToggle.addEventListener('click', toggleTheme)
-filterButtons.forEach(btn => btn.addEventListener('click', changeFilter))
+// addTaskBtn.addEventListener('click', addTask)
+// themeToggle.addEventListener('click', toggleTheme)
+// filterButtons.forEach(btn => btn.addEventListener('click', changeFilter))
 
-function addTask(){
-    const text = taskInput.value.trim()
-    if(text === '') return
+// function addTask(){
+//     const text = taskInput.value.trim()
+//     if(text === '') return
 
-    tasks.push({id: Date.now(), text, completed: false})
-    taskInput.value = ''
-    renderTasks()
-}
-function toggleTask(id) {
-    tasks = tasks.map(task => 
-        task.id === id ? {...task, completed: !task.completed } : task
-    )
-    renderTasks()
-}
-function changeFilter(e) {
-    filter = e.target.dataset.filter
-    renderTasks()
-}
-function deleteTask(id) {
-    tasks = tasks.filter(t => t.id !== id)
-    renderTasks()
-}
-function renderTasks(){
-    taskList.innerHTML = ``
+//     tasks.push({id: Date.now(), text, completed: false})
+//     taskInput.value = ''
+//     renderTasks()
+// }
+// function toggleTask(id) {
+//     tasks = tasks.map(task => 
+//         task.id === id ? {...task, completed: !task.completed } : task
+//     )
+//     renderTasks()
+// }
+// function changeFilter(e) {
+//     filter = e.target.dataset.filter
+//     renderTasks()
+// }
+// function deleteTask(id) {
+//     tasks = tasks.filter(t => t.id !== id)
+//     renderTasks()
+// }
+// function renderTasks(){
+//     taskList.innerHTML = ``
 
-    const filteredTasks = task.filter(task => {
-        if(filter === 'completed') return task.completed
-        if(filter === 'pending') return !task.completed
-        return true
-    })
-    filteredTasks.forEach(task => {
-        const li = document.createElement('li')
-        const span = document.createElement('span')
-        span.textContent = task.text
-        if(task.completed) span.classList.add('completed')
-        span.style.cursor = 'pointer'
-        span.addEventListener('click', () => toggleTask(task.id))
+//     const filteredTasks = task.filter(task => {
+//         if(filter === 'completed') return task.completed
+//         if(filter === 'pending') return !task.completed
+//         return true
+//     })
+//     filteredTasks.forEach(task => {
+//         const li = document.createElement('li')
+//         const span = document.createElement('span')
+//         span.textContent = task.text
+//         if(task.completed) span.classList.add('completed')
+//         span.style.cursor = 'pointer'
+//         span.addEventListener('click', () => toggleTask(task.id))
 
-        const deleteBtn = document.createElement('button')
-        deleteBtn.textContent = 'X'
-        deleteBtn.addEventListener('click', () => deleteTask(task.id))
+//         const deleteBtn = document.createElement('button')
+//         deleteBtn.textContent = 'X'
+//         deleteBtn.addEventListener('click', () => deleteTask(task.id))
 
-        li.appendChild(span)
-        li.appendChild(deleteBtn)
-        taskList.appendChild(li)
-    })
-}
-function toggleTheme() {
-    darkMode = !darkMode
-    document.body.classList.toggle('dark', darkMode)
-    themeToggle.textContent = `Switch to ${darkMode ? 'light' : 'Dark'} Theme`
-}
+//         li.appendChild(span)
+//         li.appendChild(deleteBtn)
+//         taskList.appendChild(li)
+//     })
+// }
+// function toggleTheme() {
+//     darkMode = !darkMode
+//     document.body.classList.toggle('dark', darkMode)
+//     themeToggle.textContent = `Switch to ${darkMode ? 'light' : 'Dark'} Theme`
+// }
 
 // 
+const typeSelected = document.getElementById('type')
+const description = document.getElementById('desctiption')
+const amountInput = document.getElementById('amount')
+const addBtn = document.getElementById('addBtn')
+const incomeList = document.getElementById('incomeList')
+const expenseList = document.getElementById('expenseList')
+const balanceSpan = document.getElementById('balance')
+const themeToggle = document.getElementById('themeToggle')
+
+let transactions = []
+let darkMode = false
+addBtn.addEventListener('click,addTrasaction')
+
