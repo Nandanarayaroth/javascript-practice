@@ -3066,16 +3066,75 @@
 // }
 
 // 
-const typeSelected = document.getElementById('type')
-const description = document.getElementById('desctiption')
-const amountInput = document.getElementById('amount')
-const addBtn = document.getElementById('addBtn')
-const incomeList = document.getElementById('incomeList')
-const expenseList = document.getElementById('expenseList')
-const balanceSpan = document.getElementById('balance')
-const themeToggle = document.getElementById('themeToggle')
+// const typeSelected = document.getElementById('type')
+// const description = document.getElementById('desctiption')
+// const amountInput = document.getElementById('amount')
+// const addBtn = document.getElementById('addBtn')
+// const incomeList = document.getElementById('incomeList')
+// const expenseList = document.getElementById('expenseList')
+// const balanceSpan = document.getElementById('balance')
+// const themeToggle = document.getElementById('themeToggle')
 
-let transactions = []
-let darkMode = false
-addBtn.addEventListener('click,addTrasaction')
+// let transactions = []
+// let darkMode = false
+// addBtn.addEventListener('click,addTrasaction')
 
+
+// const input = document.getElementById("textInput")
+
+// input.addEventListener("input", () => {
+//     console.log("Input value: ", input.value)
+// })
+
+// let count = 0
+// const maxcount = 5
+// const countEl = document.getElementById("count")
+// const btn = document.getElementById("IncrementBtn")
+
+// btn.addEventListener("click", () => {
+//     if (count < maxcount){
+//         count ++
+//         countEl.textContent = count
+//         if(count === maxcount){
+//             console.log("Max count reached")
+//             btn.disable = true
+//         }
+//     }
+// })
+
+// const btn = document.getElementById("toggleBtn")
+// const box = document.getElementById("box")
+
+// btn.addEventListener("click", () => {
+//     if(box.style.display === "none"){
+//         box.style.display = "block"
+//         btn.textContent = "Hide"
+//         console.log("Component shown")
+//     }
+//     else{
+//         box.style.display = "none"
+//         btn.textContent = "show"
+//         console.log("Component hidden")
+//     }
+// })
+
+// function logwidth(){
+//     console.log("Window width:", window.innerWidth)
+// }
+
+// window.addEventListener("resize", logwidth)
+// logwidth()
+
+let seconds = 10
+const timerEl = document.getElementById("timer")
+
+const interval = setInterval(() => {
+    timerEl.textContent = seconds
+    console.log("Seconds left: ", seconds)
+    seconds--
+
+    if(seconds < 0) {
+        clearInterval(interval)
+        console.log("Time's up!")
+    }
+}, 1000)
