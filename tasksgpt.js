@@ -3125,16 +3125,327 @@
 // window.addEventListener("resize", logwidth)
 // logwidth()
 
-let seconds = 10
-const timerEl = document.getElementById("timer")
+// let seconds = 10
+// const timerEl = document.getElementById("timer")
 
-const interval = setInterval(() => {
-    timerEl.textContent = seconds
-    console.log("Seconds left: ", seconds)
-    seconds--
+// const interval = setInterval(() => {
+//     timerEl.textContent = seconds
+//     console.log("Seconds left: ", seconds)
+//     seconds--
 
-    if(seconds < 0) {
-        clearInterval(interval)
-        console.log("Time's up!")
+//     if(seconds < 0) {
+//         clearInterval(interval)
+//         console.log("Time's up!")
+//     }
+// }, 1000)
+
+// const box = document.getElementById("hoverBox")
+
+// box.addEventListener("mouseenter", () => {
+//     console.log("mouse enterd")
+// })
+
+// box.addEventListener("mouseleave", () => {
+//     console.log("Mouse left")
+// })
+
+// const input = document.getElementById("textInput")
+// input.addEventListener("keydown", (e) => {
+//     console.log("Key pressed: ", e.key)
+// }) 
+
+// const input = document.getElementById("textInput")
+
+// input.addEventListener("input", () => {
+//     input.value = input.value.toUpperCase()
+// })
+
+// const input = document.getElementById("textInput")
+// const counter = document.getElementById("counter")
+
+// input.addEventListener("input", () => {
+//     counter.textContent = `Characters : ${input.value.length}`
+// })
+
+// const btn = document.getElementById("dblBtn")
+// btn.addEventListener("dblclick", () => {
+//     console.log("Button double-clicked")
+// })
+
+// const btn = document.getElementById("colorBtn")
+
+// btn.addEventListener("click", () => {
+//     const randomColor = "#" + Math.floor(Math.random() * 167777215).toString(16)
+//     document.body.style.backgroundColor = randomColor
+//     console.log("Background color changed to:", randomColor)
+// })
+
+// let second = 10
+// const timerEl = document.getElementById("timer")
+// const stopBtn = document.getElementById("stopBtn")
+
+// const interval = setInterval(() => {
+//     timerEl.textContent = second
+//     second--
+
+//     if(second < 0) {
+//         clearInterval(interval)
+//         console.log("Time's up!")
+//     }
+// }, 1000)
+
+// stopBtn.addEventListener("click", () => {
+//     clearInterval(interval)
+//     console.log("Timer stopped!")
+// })
+
+// const password = document.getElementById("password")
+// const toggleBtn = document.getElementById("toggleBtn")
+
+// toggleBtn.addEventListener("click", () => {
+//     if(password.type === "password"){
+//         password.type= "text"
+//         toggleBtn.textContent = "Hide"
+//     }
+//     else{
+//         password.type = "password"
+//         toggleBtn.textContent = "show"
+//     }
+// })
+
+// function updateClock() {
+//     const now = new Date()
+//     document.getElementById("clock").textContent = now.toLocaleTimeString()
+// }
+
+// setInterval(updateClock, 1000)
+// updateClock()
+
+// const btn = document.getElementById("jokeBtn")
+// const jokeEl = document.getElementById("joker")
+
+// btn.addEventListener("click", async () => {
+//     const response = await fetch("https://api.chucknorris.io/jokes/random")
+//     const data = await response.json()
+//     jokeEl.textContent = data.value
+//     console.log("Joke fetched: ", data.value)
+// })
+
+// let count = 0
+// const countEl = document.getElementById("count")
+// document.getElementById("IncrementBtn").addEventListener("click", () => {
+//     count++
+//     countEl.textContent = count
+// })
+// document.getElementById("resetBtn").addEventListener("click", () => {
+//     count = 0
+//     countEl.textContent = count
+// })
+
+// const btn = document.getElementById("themeBtn")
+// btn.addEventListener("click", () => {
+//     document.body.classList.toggle("dark")
+//     console.log("Theme changed:", document.body.classList.contains("dark"))
+// })
+
+// const btn = document.getElementById("themeBtn")
+
+// if(localStorage.getItem("theme") == "dark") {
+//     document.body.classList.add("dark")
+// }
+
+// btn.addEventListener("click", ()=> {
+//     document.body.classList.toggle("dark")
+//     localStorage.setItem("theme", document.body.classList.contains("dark"))
+// })
+
+// const input = document.getElementById("nameInput")
+
+// input.value = localStorage.getItem("name") || ""
+
+// input.addEventListener("input", () => {
+//     localStorage.setItem("name", input.value)
+// })
+
+// let seconds = 10
+// let interval
+// const timerEl = document.getElementById("timer")
+
+// document.getElementById("startBtn").addEventListener("click", () => {
+//     if(!interval) {
+//         interval = setInterval(() => {
+//             if(seconds > 0){
+//                 seconds--
+//                 timerEl.textContent = seconds
+//             }
+//             else{
+//                 clearInterval(interval)
+//             }
+//         }, 1000)
+//     }
+// })
+
+// document.getElementById("pauseBtn").addEventListener("click", () => {
+//     clearInterval(interval)
+//     interval = null
+// })
+
+// const textArea = document.getElementById("textArea")
+// const wordCountEl = document.getElementById("wordCount")
+
+// textArea.addEventListener("input", () => {
+//     const words = textArea.value.trim().split(/\s+/).filter(Boolean)
+//     wordCountEl.textContent = `Words: ${words.length}`
+// })
+
+// const input = document.getElementById("secureInput")
+// input.addEventListener("copy", (e) => {
+//     e.preventDefault()
+//     console.log("Copy disabled")
+// })
+// input.addEventListener("paste", (e) => {
+//     e.preventDefault()
+//     console.log("Paste disabled")
+// })
+
+// const textArea = document.getElementById("autoSave")
+// textArea.value = localStorage.getItem("autoText") || ""
+
+// setInterval(() => {
+//     localStorage.setItem("autoText", textArea.value)
+//     console.log("Auto-saved:", textArea.value)
+// }, 3000)
+
+// const btn = document.getElementById("scrollBtn")
+
+// window.addEventListener("scroll", () => {
+//     btn.style.display = window.scrollY > 200 ? "Block" : "none"
+// })
+
+// btn.addEventListener("click", () => {
+//     window.scrollTo({ top: 0, behavior: "smooth"})
+// })
+
+// const taskInput = document.getElementById("taskInput")
+// const addBtn = document.getElementById("addBtn")
+// const taskList = document.getElementById("taskList")
+// const totalEl = document.getElementById("total")
+// const completedEl = document.getElementById("completed")
+
+// let tasks = JSON.parse(localStorage.getItem("tasks")) || []
+
+// function saveTasks() {
+//     localStorage.setItem("tasks", JSON.stringify(tasks))
+// }
+
+// function updateStates() {
+//     totalEl.textContent = tasks.length
+//     completedEl.textContent = tasks.filter(task => task.completed).length
+// }
+// function renderTasks() {
+//     taskList.innerHTML = ""
+//     tasks.forEach((task, index) => {
+//         const li = document.createElement("li")
+//         li.className = task.completed ? "completed" : ""
+
+
+//         li.innerHTML = `
+//             <span>${task.text}</span>
+//             <div>
+//                 <button onclick="toggleCompleted(${index})">✔</button>
+//                 <button onclick="deleteTask(${index})">X</button>
+//         `;
+//         taskList.appendChild(li)
+//     })
+//     updateStates()
+// }
+
+// function addTask(){
+//     const text = taskInput.ariaValueMax.trim()
+//     if(text === "")return
+//     tasks.push({text, completed: false})
+//     taskInput.value = ""
+//     saveTasks()
+//     renderTasks()
+// }
+// function deleteTask(index){
+//     tasks.splice(index, 1)
+//     saveTasks()
+//     renderTasks()
+// }
+// function toggleComplete(index){
+//     tasks[index].completed = !tasks[index].completed
+//     saveTasks()
+//     renderTasks()
+// }
+// addBtn.addEventListener("click", addTask)
+// taskInput.addEventListener("keypress", (e) => {
+//     if(e.key === "Enter") addTask()
+// })
+
+// renderTasks()
+
+// let myString = "Hello , World"
+
+// let num = 123
+// let myBool = true
+// let myObject = {
+//     name: "Alice",
+//     age: 25
+// }
+
+// let a = 5
+// let b = 10
+
+// console.log("before swap a = ", a, "b= ",b )
+
+// a= a+b
+// b = a-b
+// a = a-b
+
+// console.log("after swap a = ", a, "b = ",b)
+
+// document.getElementById("btn").addEventListener("click", function() {
+//     const radius = Number(document.getElementById("radius").value)
+//     const opt = document.getElementById("opt")
+
+//     const result = (radius ^2) * (3.14)
+//     opt.textContent = `${result}`
+
+// })
+
+// document.getElementById("check").addEventListener("click", function() {
+//     let num = Number(document.getElementById("num").value)
+//     let result = document.getElementById("result")
+
+//     if(num % 2 === 0){
+//         result.textContent = "It is a even number"
+//     }  
+//     else{
+//         result.textContent = "It is a odd number"
+//     }  
+// })
+
+document.getElementById("btn").addEventListener("click", function() {
+    let over = document.getElementById("over")
+
+    for(let i=1; i<=100; i++){
+        
+        let container = document.createElement("p")
+        container.id = "sub"
+        if(i%3===0 && i%5===0){
+            container.textContent = "FizzBuzz"
+        }
+        else if(i%3 === 0) {
+            container.textContent = "Fizz"
+        }
+        else if(i%5 === 0){
+            container.textContent = "Buzz"
+        }
+        else{
+            container.textContent = `${i}`
+        }
+        over.appendChild(container)
     }
-}, 1000)
+
+})
