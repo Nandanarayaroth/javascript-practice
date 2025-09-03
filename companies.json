@@ -1,0 +1,40 @@
+
+    {
+        "users": [
+            {
+                "name": "Nndana",
+                "age" : 21,
+                "isProgrammer": true,
+                "skills": ["HTML", "CSS", "JavaScript"],
+                "address": {
+                    "city": "Mumbai",
+                    "state": "MH",
+                    "country":"India"
+                }
+            },
+            {
+                "name":"Athulya",
+                "age" :21,
+                "isProgrammer" : true,
+                "skills": ["DB2", "MongoDB", "JavaScript", "Python"],
+                "address":{
+                    "city": "Delhi",
+                    "state": "DL",
+                    "country": "India"
+                }
+            },
+            {
+                "name":"Amit",
+                "age": 32,
+                "isProgrammer": false,
+                "skills": [],
+                "address": {
+                    "city": "Delhi",
+                    "state": "DL",
+                    "country": "India"
+                }
+            }
+        ]
+        
+    }
+
