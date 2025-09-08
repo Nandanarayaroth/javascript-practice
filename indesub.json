@@ -1,0 +1,22 @@
+[
+    {
+        "name" : "Alice Johnson",
+        "department" : "HR"
+    },
+    {
+        "name" : "Bob",
+        "department" : "IT"
+    },
+    {
+        "name" : "Charlie Brown",
+        "department" : "Finance"
+    },
+    {
+        "name" : "David Wilson",
+        "department" : "IT"
+    },
+    {
+        "name" : "Eva Adams",
+        "department" : "HR"
+    }
+]

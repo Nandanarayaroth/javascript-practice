@@ -45,8 +45,9 @@
 //     document.querySelector("ol").innerHTML = nameEl
 // })
 
-var person = {
-    name: "Brand"
-}
+// var person = {
+//     name: "Brand"
+// }
 
-console.log(person)
+// console.log(person)
+

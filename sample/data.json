@@ -1,0 +1,29 @@
+[
+    {
+        "pic" : "https://rukminim2.flixcart.com/image/312/312/j752nww0/mobile/h/e/t/mi-mi-a1-na-original-imaexg9njdddfphr.jpeg?q=70",
+        
+        "propertiece" : {
+            "name" : "A1(Black, 64 GB)",
+            "rating" : 4.4,
+            "RAM" : "4 GB",
+            "Storage" : "64 GB",
+            "Camera" : "12 MP + 12 MP | 5 MP Front Camera",
+            "Display" : "13.97 cm (5.5 inch) Full HD",
+            "Processor" : "Octa Core 2 GHz",
+            "Battery" : "3080 mAh"  
+        }
+    },
+    {
+        "pic" : "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/u/f/5/redmi-7a-mzb7989in-mi-original-imah4gnhbz7k5ckb.jpeg?q=70",
+        "propertiece" : {
+            "name" : "A1(Black, 64 GB)",
+            "rating" : 4.4,
+            "RAM" : "4 GB",
+            "Storage" : "64 GB",
+            "Camera" : "12 MP + 12 MP | 5 MP Front Camera",
+            "Display" : "13.97 cm (5.5 inch) Full HD",
+            "Processor" : "Octa Core 2 GHz",
+            "Battery" : "3080 mAh"  
+        }   
+    }
+]
