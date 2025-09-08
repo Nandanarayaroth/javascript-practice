@@ -1,22 +1,22 @@
 [
     {
-        "name" : "Alice Johnson",
-        "department" : "HR"
+        "title" : "Inception",
+        "year" : 2010,
+        "rating" : 8.8
     },
     {
-        "name" : "Bob",
-        "department" : "IT"
+        "title" : "Interstellar",
+        "year" : 2014,
+        "rating" : 8.6
     },
     {
-        "name" : "Charlie Brown",
-        "department" : "Finance"
+        "title" : "The Dark Knight",
+        "year" : 2008,
+        "rating" : 9.0
     },
     {
-        "name" : "David Wilson",
-        "department" : "IT"
-    },
-    {
-        "name" : "Eva Adams",
-        "department" : "HR"
+        "title" : "Avengers: Endgame",
+        "year" : 2019,
+        "rating" : 8.4
     }
 ]

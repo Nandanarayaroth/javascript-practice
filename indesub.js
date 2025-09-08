@@ -292,36 +292,239 @@
 //     }
 // }
 
-let employeeData = []
+
+// let employeeData = []
+// fetch("indesub.json")
+// .then(response => response.json())
+// .then(data => {
+//     employeeData = data
+//     displayEmployees(employeeData)
+// })
+
+// function displayEmployees(emplyees){
+//     let conatiner =document.getElementById("container")
+//     conatiner.innerHTML = ""
+
+//     emplyees.forEach(emp => {
+//         let card = `
+//             <div class="card">
+//                 <h4>${emp.name}</h4>
+//                 <p><strong>Department: ${emp.department}</strong></p>
+//             </div>
+//         `
+//         conatiner.innerHTML += card
+//     })
+// }
+
+// function searchEmployees() {
+//     let query = document.getElementById("searchInput").value.toLowerCase()
+
+//     let filtered = employeeData.filter(emp => 
+//         emp.name.toLowerCase().includes(query) ||
+//         emp.department.toLowerCase().includes(query)
+//     )
+//     displayEmployees(filtered)
+// }
+
+// let todoData = []
+// fetch("indesub.json")
+// .then( response => response.json())
+// .then(data => {
+//     todoData = data
+//     displayTodo(todoData)
+// })
+
+// function displayTodo(todo){
+//     let conatiner = document.getElementById("container")
+//     conatiner.innerHTML = ""
+
+//     todo.forEach((todo, index) => {
+//         let checked = todo.completed ? "checked" : ""
+   
+//     let item = `
+//         <div class="todo-item">
+//             <input type="checkbox" id="todo-${index}" ${checked} onchange="toggleTodo(${index})"/>
+//             <label for="todo-${index}" class="${todo.completed ? 'completed' : ""}"> 
+//                 ${todo.task}
+//             </label>
+//         </div>
+//     `
+//     conatiner.innerHTML += item
+//     })
+
+// }
+
+// function toggleTodo(index) {
+//     todoData[index].completed = !todoData[index].completed
+//     displayTodo(todoData)
+// }
+
+// let employeeData = []
+
+// fetch("indesub.json")
+// .then(response => response.json())
+// .then(data => {
+//     employeeData = data
+//     displayEmployees(employeeData)
+// })
+
+// function displayEmployees(employees){
+//     let conatiner = document.getElementById("container")
+//     conatiner.innerHTML = ""
+
+//     employees.forEach(emp => {
+//         let card = `
+//             <div class="card">
+//                 <h4>${emp.name}</h4>
+//                 <p><strong>Department:</strong/>${emp.department}</p>
+//             </div>
+//         `;
+//         conatiner.innerHTML += card
+//     })
+// }
+
+// function filterByDepartment() {
+//     let selectedDept = document.getElementById("departmentSelect").value
+
+//     if(selectedDept === "All"){
+//         displayEmployees(employeeData)
+//     }
+//     else{
+//         let filterd = employeeData.filter(emp => emp.department === selectedDept)
+//         displayEmployees(filterd)
+//     }
+// }
+
+// let employeeData = []
+// fetch("indesub.json")
+// .then(response => response.json())
+// .then(data => {
+//     employeeData = data
+//     displayEmployees(employeeData)
+// })
+
+// function displayEmployees(employees) {
+//     let conatiner = document.getElementById('container')
+//     conatiner.innerHTML = ""
+
+//     employees.forEach(item => {
+//         let card = `
+//             <div class="card">
+//                 <h4>${item.name}</h4>
+//                 <p><strong> Department:</strong>${item.department}</p>
+//             </div>
+//         `;
+//         conatiner.innerHTML += card
+//     })
+// }
+
+// function filterByDepartment(){
+//     let selectedDept = document.getElementById("departmentSelect").value
+
+//     if(selectedDept === "All"){
+//         displayEmployees(employeeData)
+//     }
+//     else{
+//         let filtered = employeeData.filter(item => item.department === selectedDept)
+//         displayEmployees(filtered)
+//     }
+// }
+
+// let totalData = []
+// fetch("indesub.json")
+// .then(response => response.json())
+// .then(data => {
+//     totalData = data
+//     DisplayData(totalData)
+// })
+
+// function DisplayData(wheels) {
+//     let container = document.getElementById("container")
+//     container.innerHTML = ""
+
+//     wheels.forEach(wheel =>{
+//         let card = `
+//             <div class="imaginary">
+//                 <h5> ${wheel.name}</h5>
+//                 <h6> ${wheel.wheel}</h6>
+//             </div>
+//         `;
+//         container.innerHTML += card
+//     })
+// }
+
+// function selectedDept() {
+//     let selected = document.getElementById("mainSelect").value
+//     if(selected === 'All'){
+//         DisplayData(totalData)
+//     }
+//     else{
+//         let filterd = totalData.filter(item => item.wheel === selected)
+//         DisplayData(filterd)
+//     }
+// }
+
+// let totlProduct = []
+// fetch("indesub.json")
+// .then(response => response.json())
+// .then(data => {
+//     totlProduct = data
+// })
+
+// function filerProduct() {
+//     const minPrice = parseFloat(document.getElementById("minPrice").value)
+//     const maxPrice = parseFloat(document.getElementById("maxPrice").value)
+
+//     const filterd = totlProduct.filter(product => 
+//         product.price >= minPrice && product.price <= maxPrice
+//     )
+//     const conatiner = document.getElementById("container")
+//     conatiner.innerHTML = ''
+
+//     if(filterd.length === 0) {
+//         conatiner.innerHTML = "Product not found"
+//     }
+//     else{
+//         filterd.forEach(product => {
+//             conatiner.innerHTML += `
+//                 <div class="card">
+//                     <h4>${product.name}</h4>
+//                     <p>Category: ${product.category}</p>
+//                     <p>Price: $ ${product.price} </p>
+//                 </div>
+//             `
+//         })
+//     }
+// }
+
+let totalMovie = []
 fetch("indesub.json")
 .then(response => response.json())
 .then(data => {
-    employeeData = data
-    displayEmployees(employeeData)
+    totalMovie = data
 })
 
-function displayEmployees(emplyees){
-    let conatiner =document.getElementById("container")
+function operation() {
+    let conatiner = document.getElementById("container")
     conatiner.innerHTML = ""
+    let SelectedYr = Number(document.getElementById("SelectedYr").value)
 
-    emplyees.forEach(emp => {
-        let card = `
+    const filterd = totalMovie.filter(movie => 
+        movie.year>= SelectedYr
+    )
+
+    if(filterd.length === 0){
+        conatiner.innerHTML = "Movie not found"
+    }
+    else{
+       filterd.forEach(yers => {
+        conatiner.innerHTML += `
             <div class="card">
-                <h4>${emp.name}</h4>
-                <p><strong>Department: ${emp.department}</strong></p>
+                <h4>${yers.title} </h4>
+                <h4>${yers.year} </h4>
+                <h4>${yers.rating} </h4>
             </div>
         `
-        conatiner.innerHTML += card
-    })
+       })
+    }
 }
-
-function searchEmployees() {
-    let query = document.getElementById("searchInput").value.toLowerCase()
-
-    let filtered = employeeData.filter(emp => 
-        emp.name.toLowerCase().includes(query) ||
-        emp.department.toLowerCase().includes(query)
-    )
-    displayEmployees(filtered)
-}
-
