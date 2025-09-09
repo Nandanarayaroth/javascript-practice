@@ -497,34 +497,301 @@
 //     }
 // }
 
-let totalMovie = []
+// let totalMovie = []
+// fetch("indesub.json")
+// .then(response => response.json())
+// .then(data => {
+//     totalMovie = data
+// })
+
+// function operation() {
+//     let conatiner = document.getElementById("container")
+//     conatiner.innerHTML = ""
+//     let SelectedYr = Number(document.getElementById("SelectedYr").value)
+
+//     const filterd = totalMovie.filter(movie => 
+//         movie.year>= SelectedYr
+//     )
+
+//     if(filterd.length === 0){
+//         conatiner.innerHTML = "Movie not found"
+//     }
+//     else{
+//        filterd.forEach(yers => {
+//         conatiner.innerHTML += `
+//             <div class="card">
+//                 <h4>${yers.title} </h4>
+//                 <h4>${yers.year} </h4>
+//                 <h4>${yers.rating} </h4>
+//             </div>
+//         `
+//        })
+//     }
+// }
+
+// let totalRating = []
+// fetch("indesub.json")
+// .then(response => response.json())
+// .then(data => {
+//     totalRating = data
+// })
+
+// function operation() {
+//     let enterdValue = Number(document.getElementById("ratingEnter").value)
+//     let conatiner = document.getElementById("container")
+//     conatiner.innerHTML = ""
+
+//     let filted = totalRating.filter(item => item.rating >= enterdValue)
+
+//     if(filted.length === 0){
+//         conatiner.innerHTML = "Movie not found"
+//     }
+//     else{
+//         filted.forEach(movie => {
+//             conatiner.innerHTML += `
+//                 <div class="card">
+//                     <h4> ${movie.title}</h4>
+//                     <h4> ${movie.year}</h4>
+//                     <h3> ${movie.rating}</h3>
+//                 </div>
+//             `
+//         })
+//     }
+// }
+
+// let total = []
+// fetch("indesub.json")
+// .then(response => response.json())
+// .then(data => {
+//     total = data
+//     Display(total)
+// })
+
+// function Display(student){
+//     let conatiner = document.getElementById("container")
+//     conatiner.innerHTML = ""
+
+//     student.forEach (items => {
+//         let card = `
+//             <div class="card"> 
+//                 <h4> ${items.name}</h4>
+//                 <h4> ${items.Mark}<h4>
+//             </div>
+//         `
+//         conatiner.innerHTML += card
+//     })
+// }
+
+// function operation(){
+    
+//     let filterd = total.filter(items => 
+//         items.Mark >= 50
+//     )
+//     Display(filterd)
+// }
+
+// let total = []
+// fetch("indesub.json")
+// .then(response => response.json())
+// .then(data => 
+//     total = data
+
+// )
+
+// function Display(task) {
+//     let conatiner = document.getElementById("container")
+//     conatiner.innerHTML = ""
+
+//     task.forEach(item => {
+//         conatiner.innerHTML += `
+//             <div class="card">
+//                 <h4>Task: ${item.task}</h4>
+//                 <h4>Status: ${item.status ? "completed" : "Incompleted"}</h4>
+//             </div>
+//         `
+//     })
+// }
+
+// function completed(task) {
+//     let conatiner = document.getElementById("container")
+//     conatiner.innerHTML = ""
+
+//     let filterd = task.filter(item => item.status === true)
+//     if(filterd){
+//         Display(filterd)
+//     }
+// }
+
+// function incompleted(task) {
+//     let conatiner = document.getElementById("container")
+//     conatiner.innerHTML = ""
+
+//     let filtred = task.filter(item => item.status === false)
+//     if(filtred){
+//         Display(filtred)
+//     }
+// }
+
+// let count = []
+// fetch("indesub.json")
+// .then(response => response.json())
+// .then(data => {
+//     count = data
+// })
+
+// function Aviyal(item){
+//     let conatiner = document.getElementById("container")
+//     conatiner.innerHTML = ""
+
+//     let filted = item.filter(product => product.Availability === true) 
+//     filted.forEach(item => {
+//         conatiner.innerHTML +=`
+//             <div class="card">
+//                 <h4>${item.name} <h4>
+//                 <h4>${item.Availability ? "Available" : "Not available"} </h4>
+//             </div>
+//         `
+        
+//     })
+// }
+
+// let products = []
+
+// fetch("indesub.json")
+// .then(response => response.json())
+// .then(data => {
+//     products = data
+
+// })
+
+// function Display(product) {
+//     const conatiner = document.getElementById("container")
+//     conatiner.innerHTML = ""
+
+//     product.forEach(item => {
+//         conatiner.innerHTML +=`
+//             <div class="card">
+//                 <h4> ${item.name}</h4>
+//                 <p>Category: ${item.category} </p>
+//                 <p>Price: ${item.price} </p>
+//             </div>
+//         `
+//     })
+// }
+
+// function filterProducts() {
+//     const selectedCategory = document.getElementById("CategorySelect").value
+//     const minPrice = Number(document.getElementById("minPrice").value) || 0
+//     const maxPrice = Number(document.getElementById("maxPrice").value) || Infinity
+
+//     const filted = products.filter(product => {
+//         const matchesCategory = selectedCategory === "All" || product.category === selectedCategory
+//         const matchesPrice = product.price >= minPrice && product.price <= maxPrice
+//         return matchesCategory && matchesPrice
+//     })
+//     Display(filted)
+// } 
+
+// let items = []
+// fetch("indesub.json")
+// .then(response => response.json())
+// .then(data => 
+//     items = data
+// )
+
+// function Display(products){
+//     let container  = document.getElementById("container")
+//     container.innerHTML = ""
+
+//     products.forEach(product => {
+//         container.innerHTML += `
+//             <div class="card">
+//                 <h4>${product.name}</h4>
+//                 <h4>Category: ${product.category} </h4>
+//                 <h4>Price: ${product.price} <h4>
+//             </div>
+//         `
+//     })
+// }
+
+// function filterProducts() {
+//     const category = document.getElementById("CategorySelect").value
+//     const minPrice = Number(document.getElementById("minPrice").value)
+//     const maxPrice = Number(document.getElementById("maxPrice").value)
+    
+//     const filted = items.filter(thosth => {
+//         const matchedCategory = thosth.category === category || category === "All"
+//         const matchesPrice = thosth.price >= minPrice && thosth.price <= maxPrice
+
+//         return matchedCategory && matchesPrice
+//     })
+//     Display(filted)
+// }
+
+// let total = []
+// fetch("indesub.json")
+// .then(response => response.json())
+// .then(data => {
+//     total = data
+//     DisplayBook(total)
+// })
+
+// function DisplayBook(books) {
+//     const container = document.getElementById("container")
+//     container.innerHTML = ""
+
+//     books.forEach(book => {
+//         container.innerHTML += `
+//             <div class="card">
+//                 <h4>${book.title} </h4>
+//                 <h4>${book.author} </h4>
+//             </div>
+//         `
+//     })
+// }
+
+// function filterByAuthor(){
+//     const searchTerm = document.getElementById('entered').value.toLowerCase()
+//     const filterd = total.filter(book => 
+//         book.author.toLowerCase().includes(searchTerm)
+//     )
+//     DisplayBook(filterd)
+// }
+
+
+let orders = []
+
 fetch("indesub.json")
 .then(response => response.json())
 .then(data => {
-    totalMovie = data
+    orders = data
+    displayOrders(orders)
 })
 
-function operation() {
-    let conatiner = document.getElementById("container")
-    conatiner.innerHTML = ""
-    let SelectedYr = Number(document.getElementById("SelectedYr").value)
+function displayOrders(list) {
+    const container = document.getElementById("container")
+    container.innerHTML = ""
 
-    const filterd = totalMovie.filter(movie => 
-        movie.year>= SelectedYr
-    )
-
-    if(filterd.length === 0){
-        conatiner.innerHTML = "Movie not found"
-    }
-    else{
-       filterd.forEach(yers => {
-        conatiner.innerHTML += `
+    list.forEach(items => {
+        container.innerHTML +=`
             <div class="card">
-                <h4>${yers.title} </h4>
-                <h4>${yers.year} </h4>
-                <h4>${yers.rating} </h4>
+                <p><strong>Order ID: </strong>${items.orderId}</p>
+                <p><strong>Status: </strong>${items.status}</p>
+                <p><strong>Date: </strong>${items.date}</p>
             </div>
         `
-       })
-    }
+    })
+}
+
+function filterOrders() {
+    const selectedStatus = document.getElementById('statusSelect').value
+    const selectedDate = document.getElementById('dateInput').value
+
+    const filtered = orders.filter(order => {
+        const statusMatch = selectedStatus === "All" || order.status === selectedStatus
+        const dateMatch = selectedDate === '' || order.date > selectedDate
+        return statusMatch && dateMatch
+    })
+    displayOrders(filtered)
+
 }

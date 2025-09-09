@@ -161,12 +161,80 @@
                 <div id="container"></div>
             </div> -->
 
-            <div>
+            <!-- <div>
                 <label for="SelectedYr">Enter Year:</label>
                 <input id="SelectedYr" type="number">
                 <button onclick="operation()">Filter</button>
                 <div id="container"></div>
+            </div> -->
+
+            <!-- <div>
+                <label>Enter Rating</label>
+                <input type="number" id="ratingEnter">
+
+                <button onclick="operation() ">Filter</button>
+                <div id="container"></div>
+            </div> -->
+
+            <!-- <div>
+                <div id="container"></div>
+                <button onclick="operation()">Filter</button>
+            </div> -->
+
+            <!-- <div>
+                <h4>To do List</h4>
+                <div id="container"></div>
+                <button onclick="Display(total)" id="all">All</button>
+                <button onclick="completed(total)" id="completed">Completed</button>
+                <button onclick="incompleted(total)" id="incompleted">Incompleted</button>
+
+            </div> -->
+
+            <!-- <div>
+                <input type="checkbox" onchange="Aviyal(count)">
+                <lable>Show Availability</lable>
+                <div id="container"></div>
+            </div> -->
+            
+            <!-- <div>
+                <label>Category: 
+                    <select id="CategorySelect">
+                        <option value="All">All</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Clothing">Clothing</option>
+                        <option value="Home Appliances">Home Appliances</option>
+                    </select>
+                </label><br><br>
+                <label>Min Price: 
+                    <input type="number" id="minPrice" placeholder="0">
+                </label><br><br>
+                <label>Max Price:
+                    <input type="number" id="maxPrice" placeholder="1000">
+                </label><br><br>
+                <button onclick="filterProducts()">Filter</button>
+                <div id="container"></div>
+            </div> -->
+
+            <!-- <div>
+                <input type="text" id="entered" placeholder="Search by author" oninput="filterByAuthor()">
+                <div id="container"></div>
+            </div> -->
+
+            <div>
+                <h3>Order Directory</h3>
+                <label>Status: </label>
+                <select id="statusSelect" onchange="filterOrders()">
+                    <option value="All">All</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Delivered">Delivered</option>
+                    <option value="Canceled">Canceled</option>
+                </select>
+
+                <label>After Date: </label>
+                <input type="date" id="dateInput" onchange="filterOrders()">
+                <div id="container"></div>
             </div>
+
         
         <script src="indesub.js"></script>
     </body>
